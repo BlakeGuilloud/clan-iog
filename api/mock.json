@@ -1,0 +1,9 @@
+{
+  "queryStringParameters": {
+    "page": 2
+  },
+  "body": {
+    "bucketKey": "Test Space.w3g",
+    "fileName": "File Name"
+  }
+}

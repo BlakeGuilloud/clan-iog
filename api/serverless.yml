@@ -1,0 +1,46 @@
+service: wc3-replays
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    MONGODB_URI: ${file(./config.json):MONGODB_URI}
+    REPLAY_BUCKET: ${file(./config.json):REPLAY_BUCKET}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "s3:PutObject"
+      Resource: "arn:aws:s3:::${file(./config.json):REPLAY_BUCKET}"
+
+functions:
+  uploadFile:
+    handler: uploadFile.handler
+    events:
+      - http:
+          path: uploadFile
+          method: post
+          cors: true
+
+  renameFile:
+    handler: renameFile.handler
+    events:
+      - http:
+          path: renameFile
+          method: post
+          cors: true
+
+  createReplay:
+    handler: createReplay.handler
+    events:
+      - http:
+          path: createReplay
+          method: post
+          cors: true
+
+  fetchReplays:
+    handler: fetchReplays.handler
+    events:
+      - http:
+          path: fetchReplays
+          method: get
+          cors: true

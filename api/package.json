@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.185.0",
+    "bluebird": "^3.5.1",
+    "mongoose": "^5.0.1",
+    "mongoose-timestamp": "^0.6.0",
+    "serverless-helpers": "^0.0.6",
+    "uuid": "^3.2.1",
+    "w3g": "^1.0.3"
+  }
+}

@@ -1,0 +1,125 @@
+body {
+  margin: 0,
+}
+
+.replay-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.replay {
+  padding-bottom: 25px;
+  padding-top: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.replay__img {
+  width: 40px;
+  height: 40px;
+}
+
+.replay__item-teams {
+  display: flex;
+}
+
+.replay__item-details {
+  text-align: end;
+}
+
+.replay__item-map {
+  font-size: 18px;
+}
+
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.load-more-replays {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: #337ab7;
+  font-size: 6px;
+  margin: 20px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
