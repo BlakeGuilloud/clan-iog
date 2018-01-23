@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import {
   Button,
   Form,
@@ -16,16 +16,19 @@ class UploadReplayForm extends Component {
   static initialState =  {
     bucketKey: '',
     description: '',
+    disableSave: true,
     fileName: '',
     replay: {},
-    teams: [],
-    disableSave: true,
     showPreview: false,
+    teams: [],
+    uploadLoading: false,
   };
 
   state = UploadReplayForm.initialState;
 
   handleUploadFile = (event) => {
+    this.setState({ uploadLoading: true });
+
     const reader = new FileReader();
     const file = event.target.files[0];
 
@@ -40,12 +43,13 @@ class UploadReplayForm extends Component {
         .then(data => {
           this.setState({
             bucketKey: data.bucketKey,
-            replay: data.replay,
-            teams: data.replay.teams,
-            map: data.replay.game.map,
-            fileName: data.fileName.split('.w3g')[0],
             disableSave: false,
+            fileName: data.fileName.split('.w3g')[0],
+            map: data.replay.game.map,
+            replay: data.replay,
             showPreview: true,
+            teams: data.replay.teams,
+            uploadLoading: false,
           });
         });
     }, false);
@@ -77,7 +81,7 @@ class UploadReplayForm extends Component {
     Actions.renameFile({ bucketKey: this.state.bucketKey, fileName: `${this.state.fileName}.w3g` })
       .then(() => Actions.createReplay(payload))
       .then(() => {
-        this.props.history.push('/');
+        this.props.history.push('/replays');
       });
   }
 
@@ -89,6 +93,7 @@ class UploadReplayForm extends Component {
         <FormGroup controlId="formHorizontalEmail">
           <Col sm={6} smOffset={3}>
             <h3>Upload</h3>
+            {this.state.uploadLoading && <div className="loader">Loading...</div>}
             <FormControl onChange={this.handleUploadFile} type="file" placeholder="File" />
           </Col>
           {

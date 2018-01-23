@@ -4,19 +4,28 @@ import {
   Route,
 } from 'react-router-dom';
 
-import './App.css';
+import './css/App.css';
+
+
 import Header from './components/Header';
-import UploadReplayForm from './components/UploadReplayForm';
+import Home from './components/Home';
 import ReplayList from './components/ReplayList';
+import UploadReplayForm from './components/UploadReplayForm';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div >
+        <div className="app">
           <Header />
-          <Route exact path="/" component={ReplayList} />
-          <Route path="/upload" component={UploadReplayForm} />
+          <div className="content">
+            <Route exact path="/" component={Home} />
+            <Route path="/replays" component={ReplayList} />
+            <Route path="/upload" component={UploadReplayForm} />
+          </div>
+          <div className="footer">
+            2018 | Clan iOg
+          </div>
         </div>
       </Router>
     );

@@ -1,38 +1,52 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {
-  Jumbotron,
-  Button,
+  Navbar,
+  Nav,
+  NavItem,
+  NavDropdown,
+  MenuItem,
 } from 'react-bootstrap';
 
 class Header extends Component {
-  render() {
-    const showUploadButton = window.location.pathname === '/';
+  pushRoute = (path = '/') => {
+    this.props.history.push(path);
+  }
 
+  render() {
     return (
-      <Jumbotron className="header">
-        <h1>iOg Replays</h1>
-        <p>
-          This is a very basic site for uploading and downloading Warcraft 3 replays. Brought to you by Clan iOg!
-        </p>
-        <p>
-          This project is in it's very early stages. Please be patient with any bugs you may encounter. Feel free to report them to me at <a href="mailto:fbguillo@gmail.com" target="_top">fbguillo@gmail.com</a>
-        </p>
-        <p>
-          {
-            showUploadButton ?
-              <Link to="/upload">
-                <Button bsStyle="primary">Upload Replay</Button>
-              </Link>
-              :
+      <div className="header">
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
               <Link to="/">
-                <Button bsStyle="primary">View Replays</Button>
+                <img className="logo" src="/images/logo.png" alt=""/>
               </Link>
-          }
-        </p>
-      </Jumbotron>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Nav>
+            <NavDropdown eventKey={3} title="Replays" id="basic-nav-dropdown">
+              <MenuItem eventKey={3.1} onClick={() => this.pushRoute('/replays')}>
+                View Replays
+              </MenuItem>
+              <MenuItem eventKey={3.2} onClick={() => this.pushRoute('/upload')}>
+                Upload Replay
+              </MenuItem>
+            </NavDropdown>
+            <NavItem eventKey={1} href="https://www.youtube.com/channel/UCG1jMFXcWXHhC6sri8JLqtg">
+              Youtube
+            </NavItem>
+            <NavItem eventKey={2} href="#">
+              Discord
+            </NavItem>
+            <NavItem eventKey={3} href="#">
+              Contact
+            </NavItem>
+          </Nav>
+        </Navbar>
+      </div>
     )
   }
 }
 
-export default Header;
+export default withRouter(Header);

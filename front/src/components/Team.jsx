@@ -1,12 +1,16 @@
 import React from 'react';
 
 const Player = ({ player }) => {
+  console.log('player', player.apm.toFixed(0));
   return (
-    <div className="player">
-      <img className="replay__img" src={`./images/${player.race}.png`} alt=""/>
-      <div>
-        &nbsp;{player.name}
+    <div>
+      <div className="player">
+        <img className="replay__img" src={`./images/${player.race}.png`} alt=""/>
+        <div>
+          &nbsp;{player.name}
+        </div>
       </div>
+      <span className="apm">{player.apm.toFixed(0)} apm</span>
     </div>
   )
 }
