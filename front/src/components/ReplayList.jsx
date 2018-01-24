@@ -1,50 +1,57 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
 import dateFns from 'date-fns';
 
 import Team from './Team';
 import * as Actions from '../actions';
 import * as helpers from '../helpers';
 
-const Replay = ({ replay }) => {
-  const teams = helpers.getValidTeams(replay.data.teams);
+class Replay extends Component {
+  render() {
+    const { replay } = this.props;
 
-  return (
-    <div className="replay">
-      <div>
+    const teams = helpers.getValidTeams(replay.data.teams);
 
-        <div className="replay__item-teams">
-          {teams.map((team, idx) => {
-            return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />
-          })}
-        </div>
-        <div className="replay__item-description">
-          {replay.description}
-        </div>
-      </div>
-      <div>
-      </div>
-      <div className="replay__item-details">
+    console.log('replay', replay);
+    return (
+      <div className="replay">
         <div>
-          <a href={`https://s3.amazonaws.com/replays-bucket/${replay.bucketKey}`}>Download</a>
-        </div>
-        <div>
-          {helpers.formatMap(replay.data.map)}
+          <div className="replay__item-teams">
+            {teams.map((team, idx) => {
+              return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />
+            })}
+          </div>
+          <div className="replay__item-description">
+            {replay.description}
+          </div>
+          <div>
+
+          </div>
         </div>
         <div>
-          {dateFns.format(replay.createdAt, 'MM/DD/YYYY')}
+        </div>
+        <div className="replay__item-details">
+          <a className="link-brand" href={`https://s3.amazonaws.com/replays-bucket/${replay.bucketKey}`}>
+            Download
+          </a>
+          <div>
+            {helpers.formatMap(replay.data.map)}
+          </div>
+          <div>
+            {dateFns.format(replay.createdAt, 'MM/DD/YYYY')}
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
  class ReplayList extends Component {
    state = {
-     replays: [],
-     page: 0,
      loading: true,
+     page: 0,
+     replays: [],
+     showLoadMoreButton: true,
    };
 
    componentDidMount() {
@@ -65,13 +72,20 @@ const Replay = ({ replay }) => {
       .then((replays) => {
         this.setState({
           replays: this.state.replays.concat(replays),
-          page,
+          page: replays.length ? page : this.state.page,
           loading: false,
+          showLoadMoreButton: !!replays.length,
         });
       });
    }
 
    render() {
+     const renderLoadMoreButton = () => (
+       this.state.showLoadMoreButton &&
+        <div className="load-more-replays">
+          <Button className="u-m-0-a" onClick={this.fetchMoreReplays}>Load More Replays</Button>
+        </div>
+     )
      return (
        <div>
          {this.state.replays.map((replay, idx) => {
@@ -81,9 +95,7 @@ const Replay = ({ replay }) => {
            this.state.loading ?
             <div className="loader">Loading...</div>
               :
-            <div className="load-more-replays">
-              <Button className="u-m-0-a" onClick={this.fetchMoreReplays}>Load More Replays</Button>
-            </div>
+            renderLoadMoreButton()
          }
 
        </div>

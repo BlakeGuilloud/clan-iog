@@ -8,6 +8,8 @@ import {
   MenuItem,
 } from 'react-bootstrap';
 
+import '../css/Header.css';
+
 class Header extends Component {
   pushRoute = (path = '/') => {
     this.props.history.push(path);
@@ -19,13 +21,14 @@ class Header extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">
-                <img className="logo" src="/images/logo.png" alt=""/>
+              <Link to="/" className="logo">
+                Clan iOg
+                {/* <img className="logo" src="/images/logo.png" alt=""/> */}
               </Link>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
-            <NavDropdown eventKey={3} title="Replays" id="basic-nav-dropdown">
+            <NavDropdown eventKey={3} title="Replays" id="basic-nav-dropdown" className="app-nav__item">
               <MenuItem eventKey={3.1} onClick={() => this.pushRoute('/replays')}>
                 View Replays
               </MenuItem>
@@ -33,15 +36,16 @@ class Header extends Component {
                 Upload Replay
               </MenuItem>
             </NavDropdown>
-            <NavItem eventKey={1} href="https://www.youtube.com/channel/UCG1jMFXcWXHhC6sri8JLqtg">
-              Youtube
+            <NavItem className="app-nav__item" eventKey={3} onClick={() => this.pushRoute('/about')}>
+              About
             </NavItem>
-            <NavItem eventKey={2} href="#">
+            <NavItem className="app-nav__item" eventKey={2} onClick={() => this.pushRoute('/discord')}>
               Discord
             </NavItem>
-            <NavItem eventKey={3} href="#">
-              Contact
+            <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/youtube')}>
+              Youtube
             </NavItem>
+
           </Nav>
         </Navbar>
       </div>

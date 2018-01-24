@@ -1,0 +1,11 @@
+.footer {
+  height: 100px;
+  background-color: #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #de0000;
+  border-top: 1px solid #de0000;
+  font-size: 20px;
+  font-family: 'Cinzel', serif;
+}

@@ -25,6 +25,7 @@ function shapeReplay({ bucketKey, description, data }) {
     length: data.game.length,
     saverName: data.game.saver_name,
     type: data.game.type,
+    length: data.header.length,
   };
 
   return {

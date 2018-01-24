@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Player = ({ player }) => {
-  console.log('player', player.apm.toFixed(0));
   return (
     <div>
       <div className="player">

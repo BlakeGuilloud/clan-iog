@@ -1,0 +1,66 @@
+.replay-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.replay {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.replay__img {
+  width: 40px;
+  height: 40px;
+}
+
+.replay__item-teams {
+  display: flex;
+}
+
+.replay__item-details {
+  text-align: end;
+}
+
+.replay__item-more {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.replay__item-map {
+  font-size: 18px;
+}
+
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.apm {
+  font-size: 12px;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.load-more-replays {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}

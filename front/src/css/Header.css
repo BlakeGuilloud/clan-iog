@@ -1,0 +1,46 @@
+/* #17c57b */
+.navbar > .container {
+  margin: 0;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  border: none;
+}
+
+.navbar-default {
+  background-color: inherit;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-nav__item > a {
+  color: white !important;
+  font-size: 20px;
+}
+
+.app-nav__item > a:hover {
+  color: #de0000 !important;
+}
+
+.app-nav__item > a[aria-expanded="true"]{
+  color: #de0000 !important;
+}
+
+
+.header {
+  background-color: #323232;
+  min-height: 100px;
+  border-bottom: 2px solid #de0000;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 36px;
+  color: #de0000 !important;
+  font-family: 'Cinzel', serif;
+}

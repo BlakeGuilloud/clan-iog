@@ -6,9 +6,12 @@ import {
 
 import './css/App.css';
 
-
 import Header from './components/Header';
 import Home from './components/Home';
+import Contact from './components/Contact';
+import About from './components/About';
+import Discord from './components/Discord';
+import Youtube from './components/Youtube';
 import ReplayList from './components/ReplayList';
 import UploadReplayForm from './components/UploadReplayForm';
 
@@ -20,11 +23,15 @@ class App extends Component {
           <Header />
           <div className="content">
             <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
             <Route path="/replays" component={ReplayList} />
             <Route path="/upload" component={UploadReplayForm} />
+            <Route path="/discord" component={Discord} />
+            <Route path="/youtube" component={Youtube} />
+            <Route path="/contact" component={Contact} />
           </div>
           <div className="footer">
-            2018 | Clan iOg
+            Clan iOg | 2018
           </div>
         </div>
       </Router>
