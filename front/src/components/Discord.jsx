@@ -3,8 +3,7 @@ import React from 'react';
 const Discord = () => (
   <div className="about">
     <div className="about-item">
-      <div className="about-item__header">Join us on Discord</div>
-      <br />
+      <div className="about-item__header iframe-header">Join us on Discord</div>
       <div className="about-item__content">
         <iframe
           title="discord"

@@ -13,6 +13,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .replay__img {
@@ -22,6 +23,7 @@
 
 .replay__item-teams {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .replay__item-details {
@@ -63,4 +65,22 @@
   margin: 20px auto;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 680px) {
+  .replay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .replay__item-details {
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .replay__item-teams {
+    justify-content: center;
+  }
 }

@@ -4,10 +4,9 @@ const Home = () => (
   <div className="about">
     <div className="about-item logo-container">
       <div className="about-item__content">
-        <img src="/images/logo.png" alt=""/>
+        <img className="logo-splash" src="/images/logo-splash.png" alt="" />
       </div>
     </div>
-    <hr/>
     <div className="about-item">
       <div className="about-item__header">Featured Cast</div>
       <br />

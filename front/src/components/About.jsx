@@ -11,6 +11,7 @@ const About = () => (
         </p>
       </div>
     </div>
+    <hr/>
     <div className="about-item">
       <div className="about-item__header">Clan History</div>
       <div className="about-item__content">
