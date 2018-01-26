@@ -9,7 +9,7 @@ const Discord = () => (
           title="discord"
           src="https://discordapp.com/widget?id=388970757482610699&theme=dark"
           className="discord-iframe"
-          allowTransparency="true"
+          allowtransparency="true"
           frameBorder="0">
         </iframe>
       </div>

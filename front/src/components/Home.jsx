@@ -2,10 +2,11 @@ import React from 'react';
 
 const Home = () => (
   <div className="about">
-    <div className="about-item logo-container">
+    <div className="about-item">
       <div className="about-item__content">
         <img className="logo-splash" src="/images/logo-splash.png" alt="" />
       </div>
+    <hr/>
     </div>
     <div className="about-item">
       <div className="about-item__header">Featured Cast</div>

@@ -31,7 +31,7 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
           </div>
           <div className="footer">
-            Clan iOg | 2018
+            Clan iOg | Copyright&copy;	2018
           </div>
         </div>
       </Router>

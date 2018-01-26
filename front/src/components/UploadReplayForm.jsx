@@ -94,7 +94,7 @@ class UploadReplayForm extends Component {
           <Col sm={6} smOffset={3}>
             <h3>Upload</h3>
             {this.state.uploadLoading && <div className="loader">Loading...</div>}
-            <FormControl onChange={this.handleUploadFile} type="file" placeholder="File" />
+            <FormControl onChange={this.handleUploadFile} accept=".w3g" type="file" placeholder="File" />
           </Col>
           {
             this.state.showPreview &&

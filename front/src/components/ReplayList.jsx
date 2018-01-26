@@ -12,10 +12,9 @@ class Replay extends Component {
 
     const teams = helpers.getValidTeams(replay.data.teams);
 
-    console.log('replay', replay);
     return (
       <div className="replay">
-        <div>
+        <div className="replay__item">
           <div className="replay__item-teams">
             {teams.map((team, idx) => {
               return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />

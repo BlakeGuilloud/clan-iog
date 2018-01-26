@@ -13,8 +13,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
+
 
 .replay__img {
   width: 40px;
@@ -30,6 +30,10 @@
   text-align: end;
 }
 
+.replay__item {
+  max-width: 80%;
+}
+
 .replay__item-more {
   margin-top: 5px;
   font-size: 14px;
@@ -42,12 +46,17 @@
 .player {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   margin-right: 10px;
+}
+
+.player__name {
+  margin-left: 10px;
 }
 
 .apm {
   font-size: 12px;
+  padding-top: 2px;
 }
 
 .jumbotron {
@@ -74,6 +83,7 @@
     align-items: center;
     text-align: center;
     width: 100%;
+    flex-wrap: wrap;
   }
   .replay__item-details {
     padding-top: 20px;
@@ -82,5 +92,9 @@
   }
   .replay__item-teams {
     justify-content: center;
+    flex-direction: column;
+  }
+  .replay__item-description {
+    margin: 0 auto;
   }
 }

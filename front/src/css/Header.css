@@ -10,6 +10,7 @@
 
 .navbar-default {
   background-color: inherit;
+  width: 100%;
 }
 
 .navbar-brand {
@@ -17,30 +18,50 @@
   align-items: center;
 }
 
-.app-nav__item > a {
-  color: white !important;
-  font-size: 20px;
-}
-
 .app-nav__item > a:hover {
-  color: #de0000 !important;
+  color: #24180E !important;
 }
 
 .app-nav__item > a[aria-expanded="true"]{
-  color: #de0000 !important;
+  color: white !important;
+  background-color: #c2a988 !important;
 }
 
+.app-nav__item > a {
+  transition: color 0.5s ease;
+  display: flex !important;
+  color: #7A5230 !important;
+  /* padding: 0 !important; */
+  font-size: 16px;
+  align-items: flex-end;
+}
+
+.app-nav__item > a > img {
+  width: 25px;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.app-nav__item > a > .caret {
+  display: none;
+}
 
 .header {
-  background-color: #323232;
+  background-color: #e9d5bb;
   min-height: 100px;
-  border-bottom: 2px solid #de0000;
   display: flex;
   align-items: center;
+  font-family: 'Cinzel', serif;
+  position: relative;
 }
 
 .logo {
-  font-size: 36px;
-  color: #de0000 !important;
-  font-family: 'Cinzel', serif;
+  height: 50px;
+}
+
+.navbar-header {
+  height: 55px !important;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
