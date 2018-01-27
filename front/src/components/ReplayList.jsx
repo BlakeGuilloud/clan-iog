@@ -15,19 +15,20 @@ class Replay extends Component {
     return (
       <div className="replay">
         <div className="replay__item">
+
           <div className="replay__item-teams">
             {teams.map((team, idx) => {
               return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />
             })}
           </div>
+          {replay.data.length &&
+            <div>
+              Replay Length: {helpers.formatGameLength(replay.data.length)}
+            </div>
+          }
           <div className="replay__item-description">
             {replay.description}
           </div>
-          <div>
-
-          </div>
-        </div>
-        <div>
         </div>
         <div className="replay__item-details">
           <a className="link-brand" href={`https://s3.amazonaws.com/replays-bucket/${replay.bucketKey}`}>
