@@ -33,6 +33,7 @@ class Header extends Component {
               </Link>
             </Navbar.Brand>
           </Navbar.Header>
+
           <Nav>
             <NavDropdown eventKey={3} title={replayTitle()} id="basic-nav-dropdown" className="app-nav__item">
               <MenuItem eventKey={3.1} onClick={() => this.pushRoute('/replays')}>
@@ -42,13 +43,20 @@ class Header extends Component {
                 Upload Replay
               </MenuItem>
             </NavDropdown>
+
             <NavItem className="app-nav__item" eventKey={3} onClick={() => this.pushRoute('/about')}>
               <img src="/images/icons/about.png" alt=""/>
               <span>About</span>
             </NavItem>
-            {/* <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/shaman')}>
+
+            <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/shaman')}>
               <img src="/images/icons/shaman.jpg" alt=""/>
               <span>Shaman</span>
+            </NavItem>
+
+            {/* <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/tournament')}>
+              <img src="/images/icons/shaman.jpg" alt=""/>
+              <span>Tournaments</span>
             </NavItem> */}
 
             <NavItem className="app-nav__item" eventKey={2} onClick={() => this.pushRoute('/discord')}>
