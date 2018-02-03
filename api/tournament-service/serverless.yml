@@ -1,0 +1,9 @@
+service: wc3-tournament-service
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  createUser:
+    handler: createUser.handler
