@@ -5,7 +5,7 @@ const { tryParse, handleSuccess, handleError } = require('serverless-helpers/res
 
 module.exports.handler = (event, context, callback) => {
   const payload = {
-    "api_key": "80RDCVAtG13vfKTNKdnBQXqvBgvY7BEjghchh4eV",
+    "api_key": process.env.CHALLONGE_KEY,
     "name": "part 2222222"
   };
 
