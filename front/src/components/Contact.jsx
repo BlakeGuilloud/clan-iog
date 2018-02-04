@@ -6,7 +6,7 @@ class Contact extends Component {
       <div>
         hello
       </div>
-    )
+    );
   }
 }
 

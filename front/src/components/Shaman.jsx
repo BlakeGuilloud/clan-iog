@@ -6,27 +6,27 @@ class Shaman extends Component {
       {
         name: 'DBOL',
         race: 'Random',
-        joinDate: '08/22/2016'
+        joinDate: '08/22/2016',
       },
       {
         name: 'Ragnarok',
         race: 'Random',
-        joinDate: '09/06/2016'
+        joinDate: '09/06/2016',
       },
       {
         name: 'Sly_One',
         race: 'Night Elf',
-        joinDate: '10/24/2017'
+        joinDate: '10/24/2017',
       },
       {
         name: 'magicmushroom',
         race: 'Human',
-        joinDate: '10/27/2017'
+        joinDate: '10/27/2017',
       },
       {
         name: 'BLinK',
         race: 'Night Elf',
-        joinDate: '1/02/2018'
+        joinDate: '1/02/2018',
       },
     ];
 
@@ -45,7 +45,7 @@ class Shaman extends Component {
           </div>
         </div>
       </div>
-    )
+    );
 
     return (
       <div className="shaman">
@@ -54,7 +54,7 @@ class Shaman extends Component {
           <div className="shaman__item">
             <img className="shaman__item-image" src="/images/blizz/Chieftain.png" alt=""/>
             <div className="shaman__item-name">
-              <a className="link-brand" target="_blank" href={`http://classic.battle.net/war3/ladder/w3xp-player-profile.aspx?Gateway=Azeroth&PlayerName=Legal_Ease`}>Legal_Ease</a>
+              <a className="link-brand" target="_blank" href={'http://classic.battle.net/war3/ladder/w3xp-player-profile.aspx?Gateway=Azeroth&PlayerName=Legal_Ease'}>Legal_Ease</a>
               <div className="shaman__item-blurb">
                 <span>Race:</span> Orc
               </div>
@@ -66,7 +66,7 @@ class Shaman extends Component {
           {shaman.map(renderShaman)}
         </div>
       </div>
-    )
+    );
   }
 }
 

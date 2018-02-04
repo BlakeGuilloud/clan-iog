@@ -5,7 +5,7 @@ import {
   Nav,
   NavItem,
   NavDropdown,
-  MenuItem,
+  MenuItem
 } from 'react-bootstrap';
 
 import '../css/Header.css';
@@ -21,7 +21,7 @@ class Header extends Component {
         <img src="/images/icons/replays.png" alt=""/>
         <span>Replays</span>
       </Fragment>
-    )
+    );
 
     return (
       <div className="header">
@@ -75,7 +75,7 @@ class Header extends Component {
           </Nav>
         </Navbar>
       </div>
-    )
+    );
   }
 }
 

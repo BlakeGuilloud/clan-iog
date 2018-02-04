@@ -15,7 +15,7 @@ const Discord = () => (
       </div>
     </div>
   </div>
-)
+);
 
 export default Discord;
 
