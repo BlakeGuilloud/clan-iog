@@ -47,9 +47,7 @@
 }
 
 .header {
-  background-color: #ffc946;
-  background-image: url("top.png");
-  background-repeat: no-repeat;
+  background-color: #e9d5bb;
   min-height: 100px;
   display: flex;
   align-items: center;

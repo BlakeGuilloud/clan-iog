@@ -1,1 +1,1 @@
-A wicked sweet app for personal use. Uploading + downloading WC3 Replays.
+A silly app for personal use. Uploading + downloading WC3 Replays.
