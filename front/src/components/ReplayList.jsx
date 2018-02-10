@@ -8,7 +8,7 @@ import * as helpers from '../helpers';
 
 class Replay extends Component {
   render() {
-    const { replay } = this.props;
+    const { replay, updateDownloadCount } = this.props;
 
     const teams = helpers.getValidTeams(replay.data.teams);
 
@@ -31,8 +31,8 @@ class Replay extends Component {
           </div>
         </div>
         <div className="replay__item-details">
-          <a className="link-brand" href={`https://s3.amazonaws.com/replays-bucket/${replay.bucketKey}`}>
-            Download
+          <a onClick={() => updateDownloadCount(replay._id)} className="link-brand" href={`https://s3.amazonaws.com/replays-bucket/${replay.bucketKey}`}>
+            Download ({replay.downloads || 0})
           </a>
           <div>
             {helpers.formatMap(replay.data.map)}
@@ -50,14 +50,19 @@ class ReplayList extends Component {
    state = {
      loading: true,
      page: 0,
-     replays: [],
+     replays: {},
+     replayIds: [],
      showLoadMoreButton: true,
    };
 
    componentDidMount() {
      Actions.fetchReplays({ page: this.state.page })
        .then((replays) => {
-         this.setState({ replays, loading: false });
+         this.setState({
+           replayIds: replays.result,
+           replays: replays.entities.replays,
+           loading: false,
+         });
        });
    }
 
@@ -71,11 +76,23 @@ class ReplayList extends Component {
      Actions.fetchReplays({ page })
        .then((replays) => {
          this.setState({
-           replays: this.state.replays.concat(replays),
+           replayIds: this.state.replayIds.concat(replays.result),
+           replays: { ...this.state.replays, ...replays.entities.replays },
            page: replays.length ? page : this.state.page,
            loading: false,
-           showLoadMoreButton: !!replays.length,
+           showLoadMoreButton: !!replays.result.length,
          });
+       });
+   }
+
+   updateDownloadCount = (id) => {
+     Actions.updateDownloadCount(id)
+       .then((replay) => {
+         const replays = { ...this.state.replays };
+
+         replays[id] = replay;
+
+         this.setState({ replays });
        });
    }
 
@@ -88,8 +105,8 @@ class ReplayList extends Component {
      );
      return (
        <div>
-         {this.state.replays.map((replay, idx) => {
-           return <Replay replay={replay} key={idx} />;
+         {this.state.replayIds.map((replay, idx) => {
+           return <Replay updateDownloadCount={this.updateDownloadCount} replay={this.state.replays[replay]} key={idx} />;
          })}
          {
            this.state.loading ?

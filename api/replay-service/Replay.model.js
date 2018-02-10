@@ -14,6 +14,9 @@ const ReplaySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  downloads: {
+    type: Number,
+  },
 });
 
 ReplaySchema.plugin(timestamps);

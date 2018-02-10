@@ -1,27 +1,40 @@
 import axios from 'axios';
+import { normalize, schema } from 'normalizr';
+
+const replaySchema = new schema.Entity('replays', {}, { idAttribute: '_id' });
 
 const baseUrl = 'https://cehovot3a2.execute-api.us-east-1.amazonaws.com/dev';
 
 export function uploadFile(file) {
   return axios.post(`${baseUrl}/uploadFile`, file)
     .then(response => response.data)
-    .catch(console.error); // eslint-disable-line no-console
+    .catch(handleError);
 }
 
 export function createReplay(payload) {
   return axios.post(`${baseUrl}/createReplay`, payload)
     .then(response => response.data)
-    .catch(console.error); // eslint-disable-line no-console
+    .catch(handleError);
 }
 
 export function fetchReplays({ page }) {
   return axios.get(`${baseUrl}/fetchReplays?page=${page}`)
-    .then(response => response.data)
-    .catch(console.error); // eslint-disable-line no-console
+    .then(response => normalize(response.data, [replaySchema]))
+    .catch(handleError);
 }
 
 export function renameFile(payload) {
   return axios.post(`${baseUrl}/renameFile`, payload)
     .then(response => response.data)
-    .catch(console.error); // eslint-disable-line no-console
+    .catch(handleError);
+}
+
+export function updateDownloadCount(id) {
+  return axios.post(`${baseUrl}/updateDownloadCount`, { id })
+    .then(response => response.data)
+    .catch(handleError);
+}
+
+function handleError(err) {
+  console.error(err); // eslint-disable-line no-console
 }
