@@ -14,6 +14,7 @@ import Discord from './components/Discord';
 import Shaman from './components/Shaman';
 import Tournament from './components/Tournament';
 import Youtube from './components/Youtube';
+import Tech from './components/Tech';
 import ReplayList from './components/ReplayList';
 import UploadReplayForm from './components/UploadReplayForm';
 
@@ -31,6 +32,7 @@ class App extends Component {
             <Route path="/discord" component={Discord} />
             <Route path="/shaman" component={Shaman} />
             <Route path="/youtube" component={Youtube} />
+			<Route path="/tech" component={Tech} />
             <Route path="/contact" component={Contact} />
             <Route path="/tournament" component={Tournament} />
           </div>

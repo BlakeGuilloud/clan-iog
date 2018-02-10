@@ -14,9 +14,9 @@
 
 .content {
   flex: 1;
-  overflow: scroll;
-  background-color: white;
-  box-shadow: inset 0 0 20px black;
+  overflow: auto;
+  background-color: rgba(0,0,0,0);
+  box-shadow: inset 0 0 0px black;
 }
 
 .home-disclaimer {
