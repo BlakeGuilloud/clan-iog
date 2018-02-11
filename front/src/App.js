@@ -14,8 +14,9 @@ import Home from './components/Home';
 import ReplayList from './components/ReplayList';
 import Shaman from './components/Shaman';
 import Tournament from './components/Tournament';
-import UploadReplayForm from './components/UploadReplayForm';
 import Youtube from './components/Youtube';
+import Tech from './components/Tech';
+import UploadReplayForm from './components/UploadReplayForm';
 
 class App extends Component {
   render() {
@@ -30,9 +31,10 @@ class App extends Component {
             <Route path="/discord" component={Discord} />
             <Route path="/replays" component={ReplayList} />
             <Route path="/shaman" component={Shaman} />
+            <Route path="/youtube" component={Youtube} />
+			<Route path="/tech" component={Tech} />
             <Route path="/tournament" component={Tournament} />
             <Route path="/upload" component={UploadReplayForm} />
-            <Route path="/youtube" component={Youtube} />
           </div>
           <div className="footer">
             Clan iOg | Copyright&copy;	2018
