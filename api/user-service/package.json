@@ -1,0 +1,13 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "mongoose": "^5.0.4",
+    "mongoose-timestamp": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "serverless-helpers": "^0.0.6"
+  }
+}

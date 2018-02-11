@@ -1,0 +1,3 @@
+{
+  "MONGODB_URI": "mongodb://fbguillo:574Rutledge.@replays-shard-00-00-ad8an.mongodb.net:27017,replays-shard-00-01-ad8an.mongodb.net:27017,replays-shard-00-02-ad8an.mongodb.net:27017/test?ssl=true&replicaSet=replays-shard-0&authSource=admin"
+}
