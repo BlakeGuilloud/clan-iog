@@ -29,7 +29,7 @@ class Header extends Component {
           <Navbar.Header>
             <Navbar.Brand>
               <Link to="/" className="logo-container">
-                <img className="logo" src="/images/logo.png" alt=""/>
+                <img className="logo" src="/images/logo2.png" alt=""/>
               </Link>
             </Navbar.Brand>
           </Navbar.Header>
@@ -67,10 +67,12 @@ class Header extends Component {
               <img src="/images/icons/youtube.jpg" alt=""/>
               <span>Youtube</span>
             </NavItem>
-            {/* <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/contact')}>
-              <img src="/images/icons/contact.jpg" alt=""/>
-              <span>Contact</span>
-            </NavItem> */}
+            
+			<NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/tech')}>
+              <img src="/images/icons/tech.png" alt=""/>
+              <span>Tech</span>
+			  
+            </NavItem> 
 
           </Nav>
         </Navbar>
