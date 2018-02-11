@@ -33,6 +33,9 @@ hr {
   font-weight: bold;
 }
 
+.u-m-t {
+  margin-top: 30px;
+}
 
 .app {
   height: 100vh;
@@ -43,7 +46,7 @@ hr {
 .content {
   flex: 1;
   overflow: scroll;
-  background-color: white;
+  background-color: #f3f3f3;
   box-shadow: inset 0 0 20px black;
 }
 

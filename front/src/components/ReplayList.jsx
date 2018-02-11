@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
 import dateFns from 'date-fns';
 
 import Team from './Team';
@@ -100,7 +99,7 @@ class ReplayList extends Component {
      const renderLoadMoreButton = () => (
        this.state.showLoadMoreButton &&
         <div className="load-more-replays">
-          <Button className="u-m-0-a" onClick={this.fetchMoreReplays}>Load More Replays</Button>
+          <button className="u-m-0-a btn btn-outline-dark" onClick={this.fetchMoreReplays}>Load More Replays</button>
         </div>
      );
      return (

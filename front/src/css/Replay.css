@@ -1,6 +1,9 @@
 .replay-form {
   width: 80%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .replay {

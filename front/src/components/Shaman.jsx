@@ -19,9 +19,9 @@ class Shaman extends Component {
         joinDate: '10/24/2017',
       },
       {
-        name: 'magicmushroom',
+        name: 'FatRedBelly',
         race: 'Human',
-        joinDate: '10/27/2017',
+        joinDate: '1/21/2017',
       },
       {
         name: 'BLinK',

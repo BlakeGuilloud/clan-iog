@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import {
-  Button,
-  Form,
-  FormGroup,
-  Col,
-  FormControl
-} from 'react-bootstrap';
+// import {
+//   Button,
+//   Form,
+//   FormGroup,
+//   Col,
+//   FormControl
+// } from 'react-bootstrap';
 
 import Team from './Team';
 import * as Actions from '../actions';
@@ -89,21 +89,23 @@ class UploadReplayForm extends Component {
     const teams = helpers.getValidTeams(this.state.teams);
 
     return (
-      <Form className="replay-form" horizontal>
-        <FormGroup controlId="formHorizontalEmail">
-          <Col sm={6} smOffset={3}>
-            <h3>Upload</h3>
-            {this.state.uploadLoading && <div className="loader">Loading...</div>}
-            <FormControl onChange={this.handleUploadFile} accept=".w3g" type="file" placeholder="File" />
-          </Col>
-          {
-            this.state.showPreview &&
+      <form className="replay-form">
+        <div className="form-group">
+          <h3>Upload</h3>
+          {this.state.uploadLoading && <div className="loader">Loading...</div>}
+          <div class="custom-file">
+            <input type="file" onChange={this.handleUploadFile} accept=".w3g" class="custom-file-input" id="customFile" />
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+        </div>
+        {
+          this.state.showPreview &&
               <Fragment>
-                <Col sm={6} smOffset={3}>
+                <div className="form-group">
                   <h3>Name</h3>
-                  <FormControl value={this.state.fileName} name="fileName" onChange={this.handleChange} placeholder="Replay Name" />
-                </Col>
-                <Col sm={6} smOffset={3}>
+                  <input className="form-control" value={this.state.fileName} name="fileName" onChange={this.handleChange} placeholder="Replay Name" />
+                </div>
+                <div className="form-group">
                   <h3>Players</h3>
                   <div className="replay__item-teams">
                     {teams.map((team, idx) => {
@@ -113,23 +115,22 @@ class UploadReplayForm extends Component {
                   <div className="replay__item-map">
                     {helpers.formatMap(this.state.map)}
                   </div>
-                </Col>
-                <Col sm={6} smOffset={3}>
+                </div>
+                <div className="form-group">
                   <h3>Description</h3>
-                  <FormControl value={this.state.description} name="description" onChange={this.handleChange} componentClass="textarea" rows="10" placeholder="Replay Description" />
-                </Col>
+                  <input className="form-control" value={this.state.description} name="description" onChange={this.handleChange} componentClass="textarea" rows="10" placeholder="Replay Description" />
+                </div>
               </Fragment>
-          }
-        </FormGroup>
+        }
         {
           this.state.showPreview &&
-            <FormGroup>
-              <Col sm={6} smOffset={3}>
-                <Button disabled={this.state.disableSave} onClick={this.handleSubmit} bsStyle="primary" type="submit">Submit Replay</Button>
-              </Col>
-            </FormGroup>
+            <div class="form-group">
+              <div>
+                <button className="btn btn-dark" disabled={this.state.disableSave} onClick={this.handleSubmit} type="submit">Submit Replay</button>
+              </div>
+            </div>
         }
-      </Form>
+      </form>
     );
   }
 }

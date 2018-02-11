@@ -1,14 +1,11 @@
 .footer {
   height: 60px;
-  color: #130000;
-  background-color: rgba(0,0,0,0);
-  background-image: url("/images/borders/bottom.png");
-  background-repeat: repeat;
-  min-height: 100px;
+  /* color: white; */
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'times', serif;
-  font-size: 24px;
   position: relative;
+  box-shadow: 0.2rem 0 0.5rem rgba(0,0,0,.2);
+  background-color: #CFC89A;
 }

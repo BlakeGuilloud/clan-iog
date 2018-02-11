@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavDropdown,
-  MenuItem
-} from 'react-bootstrap';
+// import {
+//   Navbar,
+//   Nav,
+//   NavItem,
+//   NavDropdown,
+//   MenuItem
+// } from 'react-bootstrap';
 
 import '../css/Header.css';
 
@@ -23,60 +23,73 @@ class Header extends Component {
       </Fragment>
     );
 
+    const navItems = [
+      {
+        image: '/images/icons/about.png',
+        route: '/about',
+        title: 'About',
+        active: window.location.pathname.includes('about'),
+      },
+      // {
+      //   image: '/images/icons/shaman.jpg',
+      //   route: '/shaman',
+      //   title: 'Shaman',
+      //   active: window.location.pathname.includes('shaman'),
+      // },
+      {
+        image: '/images/icons/discord.jpg',
+        route: '/media',
+        title: 'Media',
+        active: window.location.pathname.includes('media'),
+      },
+      // {
+      //   image: '/images/icons/discord.jpg',
+      //   route: '/discord',
+      //   title: 'Discord',
+      //   active: window.location.pathname.includes('discord'),
+      // },
+      // {
+      //   image: '/images/icons/youtube.jpg',
+      //   route: '/youtube',
+      //   title: 'Youtube',
+      //   active: window.location.pathname.includes('youtube'),
+      // },
+      {
+        image: '/images/icons/replays.png',
+        route: '/replays',
+        title: 'Replays',
+        active: window.location.pathname.includes('replays') || window.location.pathname.includes('upload'),
+      },
+      {
+        image: '/images/icons/tech.png',
+        route: '/tech',
+        title: 'Tech',
+        active: window.location.pathname.includes('tech'),
+      },
+    ];
+
     return (
-      <div className="header">
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/" className="logo-container">
-                <img className="logo" src="/images/logo2.png" alt=""/>
-              </Link>
-            </Navbar.Brand>
-          </Navbar.Header>
-
-          <Nav>
-            <NavDropdown eventKey={3} title={replayTitle()} id="basic-nav-dropdown" className="app-nav__item">
-              <MenuItem eventKey={3.1} onClick={() => this.pushRoute('/replays')}>
-                View Replays
-              </MenuItem>
-              <MenuItem eventKey={3.2} onClick={() => this.pushRoute('/upload')}>
-                Upload Replay
-              </MenuItem>
-            </NavDropdown>
-
-            <NavItem className="app-nav__item" eventKey={3} onClick={() => this.pushRoute('/about')}>
-              <img src="/images/icons/about.png" alt=""/>
-              <span>About</span>
-            </NavItem>
-
-            <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/shaman')}>
-              <img src="/images/icons/shaman.jpg" alt=""/>
-              <span>Shaman</span>
-            </NavItem>
-
-            {/* <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/tournament')}>
-              <img src="/images/icons/shaman.jpg" alt=""/>
-              <span>Tournaments</span>
-            </NavItem> */}
-
-            <NavItem className="app-nav__item" eventKey={2} onClick={() => this.pushRoute('/discord')}>
-              <img src="/images/icons/discord.jpg" alt=""/>
-              <span>Discord</span>
-            </NavItem>
-            <NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/youtube')}>
-              <img src="/images/icons/youtube.jpg" alt=""/>
-              <span>Youtube</span>
-            </NavItem>
-            
-			<NavItem className="app-nav__item" eventKey={1} onClick={() => this.pushRoute('/tech')}>
-              <img src="/images/icons/tech.png" alt=""/>
-              <span>Tech</span>
-			  
-            </NavItem> 
-
-          </Nav>
-        </Navbar>
-      </div>
+      <nav className="navbar navbar-expand-lg navbar-light">
+        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <Link to="/" className="navbar-brand" href="#">
+          <img src="/images/logo.png" width="250" className="d-inline-block align-top" alt="" />
+        </Link>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            {navItems.map(item => (
+              <li className={`nav-item ${item.active ? 'active' : ''}`} key={item.route}>
+                <Link to={item.route} className="nav-link" href="javascript:void(0)">
+                  {/* <img src={item.image} className="rounded" width="30" alt="" /> */}
+                  {/* &nbsp; */}
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
     );
   }
 }
