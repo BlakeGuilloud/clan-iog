@@ -8,13 +8,13 @@ const Player = ({ player }) => (
       <div className="apm">{player.apm.toFixed(0)} apm</div>
     </a>
   </div>
-)
+);
 
 const Team = ({ team, showVS }) => (
   <h4 className="team">
     {showVS && <div className="player">vs.</div>}
     {Object.keys(team).map((player, idx) => <Player player={team[player]} key={idx} />)}
   </h4>
-)
+);
 
 export default Team;

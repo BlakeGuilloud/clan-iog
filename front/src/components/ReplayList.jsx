@@ -18,7 +18,7 @@ class Replay extends Component {
 
           <div className="replay__item-teams">
             {teams.map((team, idx) => {
-              return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />
+              return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />;
             })}
           </div>
           {replay.data.length &&
@@ -42,11 +42,11 @@ class Replay extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
- class ReplayList extends Component {
+class ReplayList extends Component {
    state = {
      loading: true,
      page: 0,
@@ -55,10 +55,10 @@ class Replay extends Component {
    };
 
    componentDidMount() {
-    Actions.fetchReplays({ page: this.state.page })
-      .then((replays) => {
-        this.setState({ replays, loading: false });
-      });
+     Actions.fetchReplays({ page: this.state.page })
+       .then((replays) => {
+         this.setState({ replays, loading: false });
+       });
    }
 
    fetchMoreReplays = () => {
@@ -69,14 +69,14 @@ class Replay extends Component {
      const page = this.state.page + 1;
 
      Actions.fetchReplays({ page })
-      .then((replays) => {
-        this.setState({
-          replays: this.state.replays.concat(replays),
-          page: replays.length ? page : this.state.page,
-          loading: false,
-          showLoadMoreButton: !!replays.length,
-        });
-      });
+       .then((replays) => {
+         this.setState({
+           replays: this.state.replays.concat(replays),
+           page: replays.length ? page : this.state.page,
+           loading: false,
+           showLoadMoreButton: !!replays.length,
+         });
+       });
    }
 
    render() {
@@ -85,22 +85,22 @@ class Replay extends Component {
         <div className="load-more-replays">
           <Button className="u-m-0-a" onClick={this.fetchMoreReplays}>Load More Replays</Button>
         </div>
-     )
+     );
      return (
        <div>
          {this.state.replays.map((replay, idx) => {
-           return <Replay replay={replay} key={idx} />
+           return <Replay replay={replay} key={idx} />;
          })}
          {
            this.state.loading ?
-            <div className="loader">Loading...</div>
-              :
-            renderLoadMoreButton()
+             <div className="loader">Loading...</div>
+             :
+             renderLoadMoreButton()
          }
 
        </div>
-     )
+     );
    }
- }
+}
 
- export default ReplayList;
+export default ReplayList;

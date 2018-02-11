@@ -3,8 +3,8 @@
 @import 'Header.css';
 @import 'Loader.css';
 @import 'Replay.css';
-@import 'Shaman.css';
 @import 'Scaffolding.css';
+
 
 .app {
   height: 100vh;
@@ -45,3 +45,6 @@
 .logo-splash {
   width: 80%;
 }
+
+@import 'Shaman.css';
+

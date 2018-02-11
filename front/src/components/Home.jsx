@@ -6,7 +6,7 @@ const Home = () => (
       <div className="about-item__content">
         <img className="logo-splash" src="/images/logo-splash.png" alt="" />
       </div>
-    <hr/>
+      <hr/>
     </div>
     <div className="about-item">
       <div className="about-item__header">Featured Cast</div>
@@ -16,6 +16,6 @@ const Home = () => (
       </div>
     </div>
   </div>
-)
+);
 
 export default Home;

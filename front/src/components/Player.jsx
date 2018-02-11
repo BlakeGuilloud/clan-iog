@@ -20,7 +20,7 @@ class Player extends Component {
         <div key={idx}>
           {id} - count: {dict[id]}
         </div>
-      )
+      );
     };
 
     const { player } = this.props;
@@ -35,7 +35,7 @@ class Player extends Component {
           Units: {this.state.renderUnits && Object.keys(player.units).map((id, index) => renderPlayerItem(id, index, player.units))}
         </div>
       </div>
-    )
+    );
   }
 }
 

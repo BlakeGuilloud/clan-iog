@@ -11,19 +11,19 @@ const Tournament = () => (
         </a>
       </div>
       <div className="about-item__content">
-       <iframe
-        title="tournament-1"
-        src="http://challonge.com/sa42jwk9/module"
-        width="100%"
-        height="500"
-        frameBorder="0"
-        scrolling="auto"
-        allowTransparency="true">
-      </iframe>
+        <iframe
+          title="tournament-1"
+          src="http://challonge.com/sa42jwk9/module"
+          width="100%"
+          height="500"
+          frameBorder="0"
+          scrolling="auto"
+          allowTransparency="true">
+        </iframe>
       </div>
     </div>
   </div>
-)
+);
 
 export default Tournament;
 

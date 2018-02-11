@@ -5,7 +5,7 @@ import {
   Form,
   FormGroup,
   Col,
-  FormControl,
+  FormControl
 } from 'react-bootstrap';
 
 import Team from './Team';
@@ -13,7 +13,7 @@ import * as Actions from '../actions';
 import * as helpers from '../helpers';
 
 class UploadReplayForm extends Component {
-  static initialState =  {
+  static initialState = {
     bucketKey: '',
     description: '',
     disableSave: true,
@@ -107,7 +107,7 @@ class UploadReplayForm extends Component {
                   <h3>Players</h3>
                   <div className="replay__item-teams">
                     {teams.map((team, idx) => {
-                      return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />
+                      return <Team showVS={idx + 1 === teams.length} team={team} key={idx} />;
                     })}
                   </div>
                   <div className="replay__item-map">
@@ -130,7 +130,7 @@ class UploadReplayForm extends Component {
             </FormGroup>
         }
       </Form>
-    )
+    );
   }
 }
 

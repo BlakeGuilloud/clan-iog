@@ -5,12 +5,12 @@
   "dependencies": {
     "axios": "^0.17.1",
     "date-fns": "^1.29.0",
+    "eslint-config-blake": "^1.0.9",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0",
-    "rhinostyle": "^0.13.1"
+    "react-scripts": "1.1.0"
   },
   "scripts": {
     "deploy": "yarn build && aws s3 sync build s3://clan-iog.com",

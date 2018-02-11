@@ -15,6 +15,6 @@ const Youtube = () => (
       </div>
     </div>
   </div>
-)
+);
 
 export default Youtube;
