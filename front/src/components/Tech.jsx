@@ -16,22 +16,23 @@ const Tech = () => (
       <div className="tech-item__header">CustomKeys.txt</div>
       <div className="tech-item__content">
         <p>
-          Many players use custom keys to enhance their gameplay.  This allows for a more organized keyboard. Step 1: To try them out for yourself download this <a href="downloads/customkeys.txt">Customkeys.txt</a> file. Step 2: Find the /Warcraft III folder. Step 3: Put “Customkeys.txt” into the folder. Double check if the name of your file is “Customkeys.txt” -Don’t rename it!- Step 4: Start/Restart Wc3 and in the gamplay options you have to check the box “Use my own Customkeys”! The file provided above keeps the arrangement of icons standard.  So for example the top row of action icons for a unit will remain: MOVE STOP HOLD ATTACK.  The difference is that now the hot keys will be Q W E R, rather than M S H A.  However, some player prefer to keep attack on A so they rearrange the icons with warkeys. For more on customKeys try: <a href="http://gaming-tools.com/warcraft-3/warkey/">WarKeys</a> this program will also allow you to get your item inventory keys set to 7 8 / 4 5 / 1 2 so that the game inventory section lines up with your numberpad.
+          Many players use custom keys to enhance their gameplay.  This allows for a more organized keyboard. Step 1: To try them out for yourself download this <a href="downloads/CustomKeys.txt">Customkeys.txt</a> file. Step 2: Find the /Warcraft III folder. Step 3: Put “Customkeys.txt” into the folder. Double check if the name of your file is “Customkeys.txt” -Don’t rename it!- Step 4: Start/Restart Wc3 and in the gamplay options you have to check the box “Use my own Customkeys”! The file provided above keeps the arrangement of icons standard.  So for example the top row of action icons for a unit will remain: MOVE STOP HOLD ATTACK.  The difference is that now the hot keys will be Q W E R, rather than M S H A.  However, some player prefer to keep attack on A so they rearrange the icons with warkeys. For more on customKeys try: <a href="http://gaming-tools.com/warcraft-3/warkey/">WarKeys</a> this program will also allow you to get your item inventory keys set to 7 8 / 4 5 / 1 2 so that the game inventory section lines up with your numberpad.
 
         </p>
 	</div>
    </div>
+      <div className="tech-item">
 		<div className="tech-item__header">Bot Commands</div>
       <div className="tech-item__content">
         <p><h2>[iOg]Defender</h2>
-          Defending Clan iOg against spam, trolls and hackers since 2017, [iOg]Defender is a Stealth Bot v2.7 beta Build 490.  Typing '.pingme' gets your ping or .ping &ltuser name&gt gets another user's ping. Other commands you can use are: .votekick &ltuser&gt | .roll &lt#&gt | .vote &lt#&gt | .math &lt#+#&gt | .banned | .whois | .whoami | .about | .votekick &lt;player name
+          Defending Clan iOg against spam, trolls and hackers since 2017, [iOg]Defender is a Stealth Bot v2.7 beta Build 490.  Typing '.pingme' gets your ping or .ping &lt;user name&gt; gets another user's ping. Other commands you can use are: .votekick &lt;user&gt; | .roll &lt;#&gt; | .vote &lt;#&gt; | .math &lt;#+#&gt; | .banned | .whois | .whoami | .about | .votekick &lt;player name
 		  <h2>[ioG]Host-bot</h2>
-		  Clan iOg offers hosting through GhostPanel.net. The host bot commands are as follows: !load &ltmap name&gt, !pub &ltgame name&gt, !unhost, !open &ltslot&gt|, !comp &ltslot&gt &ltdifficulty 0-2&gt &ltteam&gt, !kick &ltplayer name&gt, !ping, !from, !checkme.  Please remember to !unhost if you decide not to use a map you hosted.  Ask LegaL_EasE for access to the host bot.  Please also do not wait in the game lobby with a hosted map for a long time as other members may want to use the bot too.  The bot can host up to 3 games at one time. You must use the !load command with a few of the letters from the config file.  SO the map Emerald Garden, for example, can be loaded by typing !load EM.  When choosing the game name please use accurate discriptions like "1v1 TM iog" for a one-on-one host on twisted meadows.  Add the tag "iog" so that other players know that it isn't an auto hosted open service and is intended for members of our clan.
+		  Clan iOg offers hosting through GhostPanel.net. The host bot commands are as follows: !load &lt;map name&gt;, !pub &lt;game name&gt;, !unhost, !open &lt;slot&gt;|, !comp &lt;slot&gt; &lt;difficulty 0-2&gt; &lt;team&gt;, !kick &lt;player name&gt;, !ping, !from, !checkme.  Please remember to !unhost if you decide not to use a map you hosted.  Ask LegaL_EasE for access to the host bot.  Please also do not wait in the game lobby with a hosted map for a long time as other members may want to use the bot too.  The bot can host up to 3 games at one time. You must use the !load command with a few of the letters from the config file.  SO the map Emerald Garden, for example, can be loaded by typing !load EM.  When choosing the game name please use accurate discriptions like "1v1 TM iog" for a one-on-one host on twisted meadows.  Add the tag "iog" so that other players know that it isn't an auto hosted open service and is intended for members of our clan.
 		  </p>
 		  <p>The following is a complete list of maps hosted by Clan iOg:</p>
 		  
 						<li>Map	----------------------- config file</li>
-						<li>Echo Isles -2-	Ei.cfg	   </li>
+						<li>Echo Isles -2-		Ei.cfg	   </li>
 						<li>Emerald Gardens-12-  tft-emeraldgardens-obs.cfg	   </li>
 						<li>Bandit Ridge -2-	tft-banditridge-obs.cfg	   	</li>
 						<li>Melting Valley -2-	MV.cfg	   </li>
@@ -91,6 +92,7 @@ const Tech = () => (
 						<li>-4-WarCraft IV			Wc4.cfg		    </li>		  
        
       </div>
+  </div>
   </div>
 
 
