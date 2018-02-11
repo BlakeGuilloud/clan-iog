@@ -28,10 +28,18 @@
 
 .about-item__content {
   font-size: 18px;
-  text-indent: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: left;
+}
+
+.u-w-100 {
+  width: 100%;
+}
+
+.indent {
+  text-indent: 5%;
 }
 
 /* Deprecate */

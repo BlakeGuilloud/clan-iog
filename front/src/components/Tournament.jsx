@@ -5,10 +5,12 @@ const Tournament = () => (
     <div className="about-item">
       <div className="about-item__header">
         iOg Cup
-
       </div>
       <div className="about-item__content">
-        <iframe
+        <p className="alt__font u-w-100">
+          Welcome to the first iOg Cup! While the date for this tournament has yet to be deci
+        </p>
+        {/* <iframe
           title="tournament-1"
           src="http://challonge.com/sa42jwk9/module"
           width="100%"
@@ -16,7 +18,7 @@ const Tournament = () => (
           frameBorder="0"
           scrolling="auto"
           allowTransparency="true">
-        </iframe>
+        </iframe> */}
         <button href="http://challonge.com/tournaments/signup/zH7piX66bG" className="btn btn-outline-dark u-m-t">
           Register
         </button>

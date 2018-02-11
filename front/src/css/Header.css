@@ -1,12 +1,11 @@
 .navbar {
-  box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.2);
-  font-size: 24px;
+  box-shadow: 0 0.1rem 0.9rem black;
+  font-size: 20px;
   min-height: 120px;
   background-color: #CFC89A;
-
 }
 
 .header-menu__item-image {
-  margin-right: 10px;
+  margin-right: 5px;
   margin-left: 10px;
 }

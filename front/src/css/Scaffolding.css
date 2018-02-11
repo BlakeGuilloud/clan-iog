@@ -37,7 +37,7 @@ iframe {
   flex: 1;
   overflow: scroll;
   background-color: #f3f3f3;
-  box-shadow: inset 0 0 0.8rem black;
+  box-shadow: inset 0 0 0.8rem gray;
 }
 
 .link-brand {

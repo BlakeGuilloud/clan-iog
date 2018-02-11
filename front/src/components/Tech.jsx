@@ -284,14 +284,16 @@ const customMaps = [
   },
 ].sort(alphabetize);
 
+const itemContentClass = 'about-item__content indent alt__font';
+
 const Tech = () => (
   <Fragment>
     <div className="about">
       <div className="about-item">
         <div className="about-item__header">Local Hosting</div>
-        <div className="about-item__content alt__font">
+        <div className={itemContentClass}>
           <p>
-						In order to arrange teams or host custom games without a host-bot, you will need to portforward.  This simple process will all you to invite others to arranged team games and team tournament games as well as permit you to host your own custom games.  You will need to open ports 6112 - 6119.  To do this, first you log in to your router.  Most routers will log you in with an IP address (example: <a href="https://192.168.1.1"> 192.168.1.1</a>) but some require other addresses like NetGear's <a href="http://www.routerlogin.net">http://www.routerlogin.net</a>.  But most use your IP which can be found by opening your Command Prompt. A fast way to launch this window is to press the Win + R keys on your keyboard. Then, type cmd or cmd.exe and press Enter or click/tap OK.  If you have trouble findnig the way to log in go to: <a href="https://portforward.com/router.htm">portforward.com/router.htm</a> and look up your router make and model. The username and password are almost always: admin and password. Find the section for Port Forwarding in your menu options. The set the protocol to TCP and open ports 6112-6119. Save. And you are done.  You can also plug directly into you modem and this should also allow you to host.
+						In order to arrange teams or host custom games without a host-bot, you will need to portforward.  This simple process will all you to invite others to arranged team games and team tournament games as well as permit you to host your own custom games.  You will need to open ports 6112 - 6119.  To do this, first you log in to your router.  Most routers will log you in with an IP address (example: <a className="link-brand" href="https://192.168.1.1"> 192.168.1.1</a>) but some require other addresses like NetGear's <a className="link-brand" href="http://www.routerlogin.net">http://www.routerlogin.net</a>.  But most use your IP which can be found by opening your Command Prompt. A fast way to launch this window is to press the Win + R keys on your keyboard. Then, type cmd or cmd.exe and press Enter or click/tap OK.  If you have trouble findnig the way to log in go to: <a className="link-brand" href="https://portforward.com/router.htm">portforward.com/router.htm</a> and look up your router make and model. The username and password are almost always: admin and password. Find the section for Port Forwarding in your menu options. The set the protocol to TCP and open ports 6112-6119. Save. And you are done.  You can also plug directly into you modem and this should also allow you to host.
           </p>
         </div>
       </div>
@@ -299,9 +301,9 @@ const Tech = () => (
     <div className="about">
       <div className="about-item">
         <div className="about-item__header">Custom Keys</div>
-        <div className="about-item__content alt__font">
+        <div className={itemContentClass}>
           <p>
-						Many players use custom keys to enhance their gameplay.  This allows for a more organized keyboard. Step 1: To try them out for yourself download this <a href="downloads/CustomKeys.txt">Customkeys.txt</a> file. Step 2: Find the C:/Progrom Files/Warcraft III folder. Step 3: Put “Customkeys.txt” into the folder. Double check if the name of your file is “Customkeys.txt” -Don’t rename it!- Step 4: Start/Restart Wc3 and in the gamplay options you have to check the box “Use my own Customkeys”! The file provided above keeps the arrangement of icons standard.  So for example the top row of action icons for a unit will remain: MOVE STOP HOLD ATTACK.  The difference is that now the hot keys will be Q W E R, rather than M S H A.  However, some player prefer to keep attack on A so they rearrange the icons with warkeys. For more on customKeys try: <a href="http://gaming-tools.com/warcraft-3/warkey/">WarKeys</a> this program will also allow you to get your item inventory keys set to 7 8 / 4 5 / 1 2 so that the game inventory section lines up with your numberpad.
+						Many players use custom keys to enhance their gameplay.  This allows for a more organized keyboard. Step 1: To try them out for yourself download this <a className="link-brand" href="downloads/CustomKeys.txt">Customkeys.txt</a> file. Step 2: Find the C:/Progrom Files/Warcraft III folder. Step 3: Put “Customkeys.txt” into the folder. Double check if the name of your file is “Customkeys.txt” -Don’t rename it!- Step 4: Start/Restart Wc3 and in the gamplay options you have to check the box “Use my own Customkeys”! The file provided above keeps the arrangement of icons standard.  So for example the top row of action icons for a unit will remain: MOVE STOP HOLD ATTACK.  The difference is that now the hot keys will be Q W E R, rather than M S H A.  However, some player prefer to keep attack on A so they rearrange the icons with warkeys. For more on customKeys try: <a className="link-brand" href="http://gaming-tools.com/warcraft-3/warkey/">WarKeys</a> this program will also allow you to get your item inventory keys set to 7 8 / 4 5 / 1 2 so that the game inventory section lines up with your numberpad.
           </p>
         </div>
       </div>
@@ -309,7 +311,7 @@ const Tech = () => (
     <div className="about">
       <div className="about-item">
         <div className="about-item__header">[iOg]Defender</div>
-        <div className="about-item__content alt__font">
+        <div className={itemContentClass}>
           <p>
 						Defending Clan iOg against spam, trolls and hackers since 2017, [iOg]Defender is a Stealth Bot v2.7 beta Build 490.  Typing '.pingme' gets your ping or .ping &lt;user name&gt; gets another user's ping. Other commands you can use are: .votekick &lt;user&gt; | .roll &lt;#&gt; | .vote &lt;#&gt; | .math &lt;#+#&gt; | .banned | .whois | .whoami | .about | .votekick &lt;player name&gt;
           </p>
@@ -319,7 +321,7 @@ const Tech = () => (
     <div className="about">
       <div className="about-item">
         <div className="about-item__header">[iOg]Host-bot</div>
-        <div className="about-item__content">
+        <div className={itemContentClass}>
           <p className="alt__font">
 						Clan iOg offers hosting through GhostPanel.net. GHostBot commands are as follows: !load &lt;.cfg name&gt;, !pub &lt;game name&gt;, !unhost, !open &lt;slot&gt;|, !comp &lt;slot&gt; &lt;difficulty 0-2&gt; &lt;team&gt;, !kick &lt;player name&gt;, !ping, !from, !checkme.  Please remember to !unhost if you decide not to use a map you hosted.  Ask LegaL_EasE for access to the host bot.  Please also do not wait in the game lobby with a hosted map for a long time as other members may want to use the bot too.  The bot can host up to 3 games at one time. You must use the !load command with a few of the letters from the config file.  SO the map Emerald Garden, for example, can be loaded by typing !load EM.  When choosing the game name please use accurate discriptions like "1v1 TM iog" for a one-on-one host on twisted meadows.  Add the tag "iog" so that other players know that it isn't an auto hosted open service and is intended for members of our clan.
           </p>
