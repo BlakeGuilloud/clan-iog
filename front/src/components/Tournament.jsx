@@ -3,12 +3,9 @@ import React from 'react';
 const Tournament = () => (
   <div className="about">
     <div className="about-item">
-      <div className="about-item__header iframe-header">
-        Upcoming Tournament
-        <br />
-        <a href="http://challonge.com/tournaments/signup/zH7piX66bG" className="link-brand">
-          Register
-        </a>
+      <div className="about-item__header">
+        iOg Cup
+
       </div>
       <div className="about-item__content">
         <iframe
@@ -20,6 +17,9 @@ const Tournament = () => (
           scrolling="auto"
           allowTransparency="true">
         </iframe>
+        <button href="http://challonge.com/tournaments/signup/zH7piX66bG" className="btn btn-outline-dark u-m-t">
+          Register
+        </button>
       </div>
     </div>
   </div>

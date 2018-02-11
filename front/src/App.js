@@ -34,7 +34,7 @@ class App extends Component {
             <Route path="/replays" component={ReplayList} />
             <Route path="/shaman" component={Shaman} />
             <Route path="/tech" component={Tech} />
-            <Route path="/tournament" component={Tournament} />
+            <Route path="/tournaments" component={Tournament} />
             <Route path="/upload" component={UploadReplayForm} />
             <Route path="/youtube" component={Youtube} />
           </div>

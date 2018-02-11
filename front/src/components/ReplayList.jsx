@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import dateFns from 'date-fns';
+import { Link } from 'react-router-dom';
 
 import Team from './Team';
 import * as Actions from '../actions';
@@ -104,6 +105,9 @@ class ReplayList extends Component {
      );
      return (
        <div>
+         <div className="upload__button">
+           <Link className="u-m-0-a btn btn-outline-dark" to="/upload">Upload Replay</Link>
+         </div>
          {this.state.replayIds.map((replay, idx) => {
            return <Replay updateDownloadCount={this.updateDownloadCount} replay={this.state.replays[replay]} key={idx} />;
          })}

@@ -9,9 +9,8 @@
   padding-bottom: 30px;
   padding-top: 30px;
   border-radius: 8px;
-  background-color: white;
-  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,.2);
-
+  background-color: #fafafa;
+  box-shadow: 0 0 1rem #00000033;
 }
 
 .about-item {
@@ -35,10 +34,10 @@
   align-items: center;
 }
 
+/* Deprecate */
 .iframe-header {
   margin: 0 auto;
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
-  /* width: 60%; */
 }
