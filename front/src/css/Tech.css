@@ -10,7 +10,8 @@
 }
 
 a {
-	color: #99ff99;
+	color: green;
+	font-weight: bold;
 }
 
 .tech-item {
