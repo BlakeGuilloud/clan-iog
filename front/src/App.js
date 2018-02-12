@@ -7,6 +7,7 @@ import {
 import './css/App.css';
 
 import About from './components/About';
+// import AutoReload from './components/AutoReload';
 import Contact from './components/Contact';
 import Discord from './components/Discord';
 import Header from './components/Header';
@@ -25,6 +26,7 @@ class App extends Component {
       <Router>
         <div className="app">
           <Header />
+          {/* <AutoReload /> */}
           <div className="content">
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />

@@ -200,11 +200,6 @@ const blizzardMaps = [
     players: 12,
   },
   {
-    title: 'Emerald Gardens',
-    config: 'tft-emeraldgardens-obs.cfg',
-    players: 12,
-  },
-  {
     title: 'Divide And Conquer',
     config: 'divideandconquer.cfg',
     players: 12,
@@ -336,7 +331,7 @@ const Tech = () => (
               </thead>
               <tbody>
                 {blizzardMaps.map(item => (
-                  <tr>
+                  <tr key={item.config}>
                     <td>{item.title}</td>
                     <td>{item.config}</td>
                     <td>{item.players}</td>
@@ -355,7 +350,7 @@ const Tech = () => (
               </thead>
               <tbody>
                 {customMaps.map(item => (
-                  <tr>
+                  <tr key={item.config}>
                     <td>{item.title}</td>
                     <td>{item.config}</td>
                   </tr>

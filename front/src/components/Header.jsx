@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import $ from 'jquery';
 
 class Header extends Component {
+  componentDidMount() {
+    $('#navbarNavDropdown').click(() => {
+      $('.navbar-toggler:visible').click();
+    });
+  }
+
   pushRoute = (path = '/') => {
     this.props.history.push(path);
   }
+
 
   render() {
     const navItems = [
@@ -44,12 +52,12 @@ class Header extends Component {
         title: 'Tech',
         active: window.location.pathname.includes('tech'),
       },
-      {
-        image: '/images/icons/shaman.jpg',
-        route: '/tournaments',
-        title: 'Tournaments',
-        active: window.location.pathname.includes('tournaments'),
-      },
+      // {
+      //   image: '/images/icons/shaman.jpg',
+      //   route: '/tournaments',
+      //   title: 'Tournaments',
+      //   active: window.location.pathname.includes('tournaments'),
+      // },
       {
         image: '/images/icons/youtube.jpg',
         route: '/youtube',
@@ -60,7 +68,7 @@ class Header extends Component {
 
     return (
       <nav className="navbar navbar-expand-xl navbar-light">
-        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button style={{outline: 'none'}} className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <Link to="/" className="navbar-brand" href="#">
@@ -70,8 +78,8 @@ class Header extends Component {
           <ul className="navbar-nav">
             {navItems.map(item => (
               <li className={`nav-item ${item.active ? 'active' : ''}`} key={item.route}>
-                <Link to={item.route} className="nav-link header-menu__item">
-                  <img src={item.image} className="rounded header-menu__item-image" width="30" alt="" />
+                <Link to={item.route} className="nav-link">
+                  {/* <img src={item.image} className="rounded header-menu__item-image" width="30" alt="" /> */}
                   <span>{item.title}</span>
                 </Link>
               </li>

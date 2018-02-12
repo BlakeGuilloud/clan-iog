@@ -1,8 +1,12 @@
 .navbar {
   box-shadow: 0 0.1rem 0.9rem black;
-  font-size: 20px;
-  min-height: 120px;
+  font-size: 22px;
+  min-height: 100px;
   background-color: #CFC89A;
+}
+
+.navbar-toggler {
+  border: none;
 }
 
 .header-menu__item-image {
