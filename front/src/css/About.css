@@ -9,7 +9,7 @@
   padding-bottom: 30px;
   padding-top: 30px;
   border-radius: 8px;
-  background-color: #fafafa;
+  background-color: white;
   box-shadow: 0 0 1rem #00000033;
 }
 
@@ -32,6 +32,10 @@
   flex-direction: column;
   align-items: center;
   text-align: left;
+}
+
+.u-a-f-s {
+  align-items: flex-start;
 }
 
 .u-w-100 {

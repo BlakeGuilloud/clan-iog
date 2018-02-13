@@ -7,6 +7,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: flex-end;
+  background-color: white;
 }
 
 .replay-form {
@@ -28,6 +29,10 @@
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
+}
+
+.replay:nth-of-type(odd) {
+  background-color: white;
 }
 
 .replay__img {
@@ -84,10 +89,12 @@
 }
 
 .load-more-replays {
+  padding-bottom: 30px;
+  padding-top: 30px;
   width: 100%;
-  margin: 20px auto;
   display: flex;
   justify-content: center;
+  background-color: white;
 }
 
 @media (max-width: 680px) {

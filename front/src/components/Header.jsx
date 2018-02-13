@@ -52,12 +52,12 @@ class Header extends Component {
         title: 'Tech',
         active: window.location.pathname.includes('tech'),
       },
-      // {
-      //   image: '/images/icons/shaman.jpg',
-      //   route: '/tournaments',
-      //   title: 'Tournaments',
-      //   active: window.location.pathname.includes('tournaments'),
-      // },
+      {
+        image: '/images/icons/shaman.jpg',
+        route: '/tournaments',
+        title: 'Tournaments',
+        active: window.location.pathname.includes('tournaments'),
+      },
       {
         image: '/images/icons/youtube.jpg',
         route: '/youtube',

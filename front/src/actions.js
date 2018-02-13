@@ -35,6 +35,23 @@ export function updateDownloadCount(id) {
     .catch(handleError);
 }
 
+const tournamentBaseUrl = 'https://ncpvepahkc.execute-api.us-east-1.amazonaws.com/dev';
+
+export function registerForTournament(tournamentId, name) {
+  const payload = {
+    name,
+    tournamentId,
+  };
+
+  return axios.post(`${tournamentBaseUrl}/createUser`, payload)
+    .then(response => response.data);
+}
+
+export function fetchTournamentParticipants(tournamentId) {
+  return axios.post(`${tournamentBaseUrl}/fetchTournamentParticipants`, { tournamentId })
+    .then(response => response.data);
+}
+
 function handleError(err) {
   console.error(err); // eslint-disable-line no-console
 }

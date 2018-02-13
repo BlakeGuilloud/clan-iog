@@ -18,6 +18,7 @@ class UploadReplayForm extends Component {
     description: '',
     disableSave: true,
     fileName: '',
+    fileNameRaw: '',
     replay: {},
     showPreview: false,
     teams: [],
@@ -44,6 +45,7 @@ class UploadReplayForm extends Component {
           this.setState({
             bucketKey: data.bucketKey,
             disableSave: false,
+            fileNameRaw: file.name,
             fileName: data.fileName.split('.w3g')[0],
             map: data.replay.game.map,
             replay: data.replay,
@@ -93,9 +95,9 @@ class UploadReplayForm extends Component {
         <div className="form-group">
           <h3>Upload</h3>
           {this.state.uploadLoading && <div className="loader">Loading...</div>}
-          <div class="custom-file">
-            <input type="file" onChange={this.handleUploadFile} accept=".w3g" class="custom-file-input" id="customFile" />
-            <label class="custom-file-label" for="customFile">Choose file</label>
+          <div className="custom-file">
+            <input type="file" onChange={this.handleUploadFile} accept=".w3g" className="custom-file-input" id="customFile" />
+            <label className="custom-file-label" htmlFor="customFile">{this.state.fileNameRaw ? this.state.fileNameRaw : 'Choose file'}</label>
           </div>
         </div>
         {
@@ -124,7 +126,7 @@ class UploadReplayForm extends Component {
         }
         {
           this.state.showPreview &&
-            <div class="form-group">
+            <div className="form-group">
               <div>
                 <button className="btn btn-dark" disabled={this.state.disableSave} onClick={this.handleSubmit} type="submit">Submit Replay</button>
               </div>
