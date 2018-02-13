@@ -77,7 +77,30 @@ class Tournament extends Component {
               All Group Stage matchups must be played within 4 days of the tournament start date, and a Knockout Stage round must be played at 8:00pm EST on each subsequent day. Specific dates will be posted when registration is complete. If there are conflicts with time slots, players may agree on an alternative time to play their Knockout Stage match.
             </p>
             <p>
-          Rules:
+              During the Group Stage, if a map cannot be decided on between the two participants, a veto system will be put in place. Each player will alternate vetoing maps until one is left. There will be no vetoes during the Knockout Stage, and the loser of the previous game will choose a map that has yet to be played in their series.
+            </p>
+            <p>
+              Knockout Stage starting map is as follows:
+            </p>
+            <ul>
+              <li>Quarter Finals: Terenas Stand</li>
+              <li>Semi Finals: Twisted Meadows</li>
+              <li>Final: Echo Isles</li>
+            </ul>
+            <p>
+              Mappool:
+            </p>
+            <ul>
+              <li>Terenas Stand</li>
+              <li>Echo Isles</li>
+              <li>Secret Valley</li>
+              <li>Twisted Meadows</li>
+              <li>Turtle Rock</li>
+              <li>Lost Temple</li>
+              <li>Gnoll Wood</li>
+            </ul>
+            <p>
+              Rules:
             </p>
             <ul>
               <li>All replays must be uploaded to our <Link className="link-brand" to="/replays">Replays Repository</Link> by the winner of the series.</li>
@@ -86,16 +109,7 @@ class Tournament extends Component {
               <li>All matches must include an observer from Clan iOg.</li>
               <li>FatRedBelly must not advance past the Group Stage.</li>
             </ul>
-            <p></p>
-            {/* <iframe
-          title="tournament-1"
-          src="http://challonge.com/sa42jwk9/module"
-          width="100%"
-          height="500"
-          frameBorder="0"
-          scrolling="auto"
-          allowTransparency="true">
-        </iframe> */}
+
             {!!this.state.participants.length &&
               <Fragment>
                 <p>Participants:</p>
@@ -151,7 +165,19 @@ class Tournament extends Component {
                 </div>
               </div>
             </div>
+            {/* <iframe
+              title="tournament-1"
+              src="http://challonge.com/sa42jwk9/module"
+              width="100%"
+              height="500"
+              frameBorder="0"
+              scrolling="auto"
+              allowTransparency="true">
+            </iframe> */}
 
+            <p className="font-italic u-m-t">
+              If you have any issues with registration or questions about the tournament in general, feel free to reach out to BLinK on Battle.net.
+            </p>
           </div>
         </div>
       </div>

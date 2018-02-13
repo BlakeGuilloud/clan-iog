@@ -35,7 +35,6 @@ class AutoReload extends Component {
   }
 
   render() {
-    console.log('auto reload V7');
     if (!this.state.hashHasChanged) return null;
 
     return (

@@ -13,14 +13,43 @@ class Header extends Component {
     this.props.history.push(path);
   }
 
-
   render() {
     const navItems = [
+      {
+        image: '/images/icons/replays.png',
+        route: '/replays',
+        title: 'Replays',
+        active: window.location.pathname.includes('replays') || window.location.pathname.includes('upload'),
+      },
+      {
+        image: '/images/icons/shaman.jpg',
+        route: '/tournaments',
+        title: 'Tournaments',
+        active: window.location.pathname.includes('tournaments'),
+      },
       {
         image: '/images/icons/about.png',
         route: '/about',
         title: 'About',
         active: window.location.pathname.includes('about'),
+      },
+      {
+        image: '/images/icons/tech.png',
+        route: '/tech',
+        title: 'Tech',
+        active: window.location.pathname.includes('tech'),
+      },
+      {
+        image: '/images/icons/discord.jpg',
+        route: '/discord',
+        title: 'Discord',
+        active: window.location.pathname.includes('discord'),
+      },
+      {
+        image: '/images/icons/youtube.jpg',
+        route: '/youtube',
+        title: 'Youtube',
+        active: window.location.pathname.includes('youtube'),
       },
       // {
       //   image: '/images/icons/shaman.jpg',
@@ -34,36 +63,6 @@ class Header extends Component {
       //   title: 'Media',
       //   active: window.location.pathname.includes('media'),
       // },
-      {
-        image: '/images/icons/discord.jpg',
-        route: '/discord',
-        title: 'Discord',
-        active: window.location.pathname.includes('discord'),
-      },
-      {
-        image: '/images/icons/replays.png',
-        route: '/replays',
-        title: 'Replays',
-        active: window.location.pathname.includes('replays') || window.location.pathname.includes('upload'),
-      },
-      {
-        image: '/images/icons/tech.png',
-        route: '/tech',
-        title: 'Tech',
-        active: window.location.pathname.includes('tech'),
-      },
-      {
-        image: '/images/icons/shaman.jpg',
-        route: '/tournaments',
-        title: 'Tournaments',
-        active: window.location.pathname.includes('tournaments'),
-      },
-      {
-        image: '/images/icons/youtube.jpg',
-        route: '/youtube',
-        title: 'Youtube',
-        active: window.location.pathname.includes('youtube'),
-      },
     ];
 
     return (
