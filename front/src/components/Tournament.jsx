@@ -165,15 +165,17 @@ class Tournament extends Component {
                 </div>
               </div>
             </div>
-            {/* <iframe
-              title="tournament-1"
-              src="http://challonge.com/sa42jwk9/module"
-              width="100%"
-              height="500"
-              frameBorder="0"
-              scrolling="auto"
-              allowTransparency="true">
-            </iframe> */}
+            <div className="embed-responsive embed-responsive-16by9">
+              <iframe
+                id="challonge"
+                title="tournament-1"
+                src="http://challonge.com/sa42jwk9/module"
+                // width="100%"
+                // height="500"
+                scrolling="yes"
+              >
+              </iframe>
+            </div>
 
             <p className="font-italic u-m-t">
               If you have any issues with registration or questions about the tournament in general, feel free to reach out to BLinK on Battle.net.

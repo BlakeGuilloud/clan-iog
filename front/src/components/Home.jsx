@@ -21,14 +21,15 @@ const Home = () => (
         <div className="about-item__header">Featured Cast</div>
         <br />
         <div className="about-item__content">
-          <iframe
-            title="iog-cast"
-            src="https://www.youtube.com/embed/DWCwzri6Bks?ecver=1"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; encrypted-media"
-          >
-          </iframe>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              title="iog-cast"
+              src="https://www.youtube.com/embed/DWCwzri6Bks?ecver=1"
+              allowFullScreen
+              allow="autoplay; encrypted-media"
+            >
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
