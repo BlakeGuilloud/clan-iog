@@ -7,10 +7,35 @@ import * as Actions from '../actions';
 import * as helpers from '../helpers';
 
 class Replay extends Component {
+  state = {
+    showWinner: false,
+  };
+
+  handleShowWinnerClick = () => {
+    this.setState({ showWinner: !this.state.showWinner });
+  }
+
   render() {
     const { replay, updateDownloadCount } = this.props;
 
     const teams = helpers.getValidTeams(replay.data.teams);
+    const { winner } = replay.data;
+
+    const winningTeam = teams.reduce((acc, currVal) => {
+      const returnVal = Object.keys(currVal)
+        .filter(item => {
+          return currVal[item].team === winner;
+        })
+        .map((item) => {
+          return currVal[item].name;
+        });
+
+      if (returnVal.length) {
+        return returnVal;
+      }
+
+      return acc;
+    }, {});
 
     return (
       <div className="replay">
@@ -28,6 +53,12 @@ class Replay extends Component {
           }
           <div className="replay__item-description">
             {replay.description}
+          </div>
+          <div className="link-brand" onClick={this.handleShowWinnerClick}>
+            Show Winner
+          </div>
+          <div>
+            {this.state.showWinner && `Winner: ${winningTeam.join(', ')}`}
           </div>
         </div>
         <div className="replay__item-details">
@@ -74,13 +105,14 @@ class ReplayList extends Component {
      const page = this.state.page + 1;
 
      Actions.fetchReplays({ page })
-       .then((replays) => {
+       .then((response) => {
+         console.log(response);
          this.setState({
-           replayIds: this.state.replayIds.concat(replays.result),
-           replays: { ...this.state.replays, ...replays.entities.replays },
-           page: replays.length ? page : this.state.page,
+           replayIds: this.state.replayIds.concat(response.result),
+           replays: { ...this.state.replays, ...response.entities.replays },
+           page: response.result.length ? page : this.state.page,
            loading: false,
-           showLoadMoreButton: !!replays.result.length,
+           showLoadMoreButton: !!response.result.length,
          });
        });
    }
@@ -103,6 +135,7 @@ class ReplayList extends Component {
           <button className="u-m-0-a btn btn-outline-dark" onClick={this.fetchMoreReplays}>Load More Replays</button>
         </div>
      );
+
      return (
        <div>
          <div className="upload__button">

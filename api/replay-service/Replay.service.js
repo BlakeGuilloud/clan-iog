@@ -1,5 +1,15 @@
 const Replay = require('./Replay.model.js');
 
+const searchReplays = (query) => {
+  return Replay.find()
+    .then((data) => {
+      const names = data.filter()
+      console.log('dataaaa', data)
+    })
+}
+
+
+
 const updateDownloadCount = (id) =>
   Replay.findById(id)
     .then(replay => {
@@ -30,4 +40,5 @@ module.exports = {
   createReplay,
   fetchReplays,
   updateDownloadCount,
+  searchReplays,
 };

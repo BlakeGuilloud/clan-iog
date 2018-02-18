@@ -52,3 +52,12 @@ functions:
           path: fetchReplays
           method: get
           cors: true
+
+
+  searchReplays:
+    handler: searchReplays.handler
+    events:
+      - http:
+          path: searchReplays
+          method: get
+          cors: true
