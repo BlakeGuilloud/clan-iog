@@ -1,9 +1,11 @@
 {
   "queryStringParameters": {
-    "page": 2
+    "page": 2,
+    "query": "blink"
   },
   "body": {
     "bucketKey": "Test Space.w3g",
-    "fileName": "File Name"
+    "fileName": "File Name",
+    "id": "5a65603acbc13d0001cf6897"
   }
 }

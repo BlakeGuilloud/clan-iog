@@ -29,6 +29,14 @@ functions:
           method: post
           cors: true
 
+  updateDownloadCount:
+    handler: updateDownloadCount.handler
+    events:
+      - http:
+          path: updateDownloadCount
+          method: post
+          cors: true
+
   createReplay:
     handler: createReplay.handler
     events:
@@ -42,5 +50,14 @@ functions:
     events:
       - http:
           path: fetchReplays
+          method: get
+          cors: true
+
+
+  searchReplays:
+    handler: searchReplays.handler
+    events:
+      - http:
+          path: searchReplays
           method: get
           cors: true

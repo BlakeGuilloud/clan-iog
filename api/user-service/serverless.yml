@@ -1,0 +1,24 @@
+service: iog-user-service
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    MONGODB_URI: ${file(./config.json):MONGODB_URI}
+
+functions:
+  postUser:
+    handler: handler.postUser
+    events:
+      - http:
+          path: postUser
+          method: post
+          cors: true
+
+  login:
+    handler: handler.login
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true

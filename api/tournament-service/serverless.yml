@@ -3,7 +3,22 @@ service: wc3-tournament-service
 provider:
   name: aws
   runtime: nodejs6.10
+  environment:
+    CHALLONGE_KEY: ${file(./config.json):CHALLONGE_KEY}
 
 functions:
   createUser:
     handler: createUser.handler
+    events:
+      - http:
+          path: createUser
+          method: post
+          cors: true
+
+  fetchTournamentParticipants:
+    handler: fetchTournamentParticipants.handler
+    events:
+      - http:
+          path: fetchTournamentParticipants
+          method: post
+          cors: true

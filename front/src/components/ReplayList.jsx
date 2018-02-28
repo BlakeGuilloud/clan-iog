@@ -1,16 +1,41 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
 import dateFns from 'date-fns';
+import { Link } from 'react-router-dom';
 
 import Team from './Team';
 import * as Actions from '../actions';
 import * as helpers from '../helpers';
 
 class Replay extends Component {
+  state = {
+    showWinner: false,
+  };
+
+  handleShowWinnerClick = () => {
+    this.setState({ showWinner: !this.state.showWinner });
+  }
+
   render() {
-    const { replay } = this.props;
+    const { replay, updateDownloadCount } = this.props;
 
     const teams = helpers.getValidTeams(replay.data.teams);
+    const { winner } = replay.data;
+
+    const winningTeam = teams.reduce((acc, currVal) => {
+      const returnVal = Object.keys(currVal)
+        .filter(item => {
+          return currVal[item].team === winner;
+        })
+        .map((item) => {
+          return currVal[item].name;
+        });
+
+      if (returnVal.length) {
+        return returnVal;
+      }
+
+      return acc;
+    }, {});
 
     return (
       <div className="replay">
@@ -29,10 +54,16 @@ class Replay extends Component {
           <div className="replay__item-description">
             {replay.description}
           </div>
+          <div className="link-brand" onClick={this.handleShowWinnerClick}>
+            Show Winner
+          </div>
+          <div>
+            {this.state.showWinner && `Winner: ${winningTeam.join(', ')}`}
+          </div>
         </div>
         <div className="replay__item-details">
-          <a className="link-brand" href={`https://s3.amazonaws.com/replays-bucket/${replay.bucketKey}`}>
-            Download
+          <a onClick={() => updateDownloadCount(replay._id)} className="link-brand" href={`https://s3.amazonaws.com/replays-bucket/${replay.bucketKey}`}>
+            Download ({replay.downloads || 0})
           </a>
           <div>
             {helpers.formatMap(replay.data.map)}
@@ -50,14 +81,19 @@ class ReplayList extends Component {
    state = {
      loading: true,
      page: 0,
-     replays: [],
+     replays: {},
+     replayIds: [],
      showLoadMoreButton: true,
    };
 
    componentDidMount() {
      Actions.fetchReplays({ page: this.state.page })
        .then((replays) => {
-         this.setState({ replays, loading: false });
+         this.setState({
+           replayIds: replays.result,
+           replays: replays.entities.replays,
+           loading: false,
+         });
        });
    }
 
@@ -69,13 +105,26 @@ class ReplayList extends Component {
      const page = this.state.page + 1;
 
      Actions.fetchReplays({ page })
-       .then((replays) => {
+       .then((response) => {
+         console.log(response);
          this.setState({
-           replays: this.state.replays.concat(replays),
-           page: replays.length ? page : this.state.page,
+           replayIds: this.state.replayIds.concat(response.result),
+           replays: { ...this.state.replays, ...response.entities.replays },
+           page: response.result.length ? page : this.state.page,
            loading: false,
-           showLoadMoreButton: !!replays.length,
+           showLoadMoreButton: !!response.result.length,
          });
+       });
+   }
+
+   updateDownloadCount = (id) => {
+     Actions.updateDownloadCount(id)
+       .then((replay) => {
+         const replays = { ...this.state.replays };
+
+         replays[id] = replay;
+
+         this.setState({ replays });
        });
    }
 
@@ -83,13 +132,17 @@ class ReplayList extends Component {
      const renderLoadMoreButton = () => (
        this.state.showLoadMoreButton &&
         <div className="load-more-replays">
-          <Button className="u-m-0-a" onClick={this.fetchMoreReplays}>Load More Replays</Button>
+          <button className="u-m-0-a btn btn-outline-dark" onClick={this.fetchMoreReplays}>Load More Replays</button>
         </div>
      );
+
      return (
        <div>
-         {this.state.replays.map((replay, idx) => {
-           return <Replay replay={replay} key={idx} />;
+         <div className="upload__button">
+           <Link className="u-m-0-a btn btn-outline-dark" to="/upload">Upload Replay</Link>
+         </div>
+         {this.state.replayIds.map((replay, idx) => {
+           return <Replay updateDownloadCount={this.updateDownloadCount} replay={this.state.replays[replay]} key={idx} />;
          })}
          {
            this.state.loading ?
