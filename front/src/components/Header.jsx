@@ -51,18 +51,6 @@ class Header extends Component {
         title: 'Youtube',
         active: window.location.pathname.includes('youtube'),
       },
-      // {
-      //   image: '/images/icons/shaman.jpg',
-      //   route: '/shaman',
-      //   title: 'Shaman',
-      //   active: window.location.pathname.includes('shaman'),
-      // },
-      // {
-      //   image: '/images/icons/discord.jpg',
-      //   route: '/media',
-      //   title: 'Media',
-      //   active: window.location.pathname.includes('media'),
-      // },
     ];
 
     return (

@@ -57,15 +57,17 @@ class Tournament extends Component {
       <div className="about">
         <div className="about-item">
           <div className="about-item__header">
-            The iOg Cup Group Stage is LIVE!
+            The iOg Cup is OVER!
           </div>
+          <p className="text-center">
+            Congratulations to our winner: PSILoveYou !
+          </p>
+          <p className="text-center">
+            For full tournament details, visit <a href="http://challonge.com/sa42jwk9" className="link-brand">Challonge</a>.
+          </p>
+
 
           <div className="about-item__content u-a-f-s alt__font">
-
-            <p>
-            I am very aware that players in Group D will not be able to see their standings in the embedded iFrame (I didn't pay for ad-free) so you will have to visit the tournament page on <a href="http://challonge.com/sa42jwk9" className="link-brand">Challonge</a> to see details.
-            </p>
-
             <div className="embed-responsive embed-responsive-16by9">
               <iframe
                 id="challonge"
@@ -78,21 +80,6 @@ class Tournament extends Component {
               >
               </iframe>
             </div>
-            <hr/>
-            <p>
-              Please try to complete all 3 matches in your Group Stage by Sunday, Feb. 19th. I would love to get the bracket rolling early next week, and perhaps sooner if everyone can complete their matches!
-            </p>
-
-            <p>
-              The time of day you play your matches is up to you and your opponent. The order in which you play your Group Stage does not matter so please try to contact any players in your Group to set up a 1v1 time between now and Sunday. If you have issues contacting a player, reach out to BLinK.
-            </p>
-
-            <p>
-              Upon completing a 1v1, the winner of the match is required to <Link className="link-brand" to="/upload">Upload the Replay</Link>. Please include the Group and Winner's name in the Replay Description.
-            </p>
-
-            <p>GL & HF!</p>
-            <h3>- BLinK </h3>
             <hr/>
             <p>
               Welcome to the first iOg Cup! The tournament will host 16 players and consist of two stages: a Group Stage followed by a Knockout Stage. Players that register after the tournament has filled up will be slotted into the Waiting List.
