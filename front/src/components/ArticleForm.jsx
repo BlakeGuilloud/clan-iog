@@ -1,22 +1,32 @@
 import React, { Component, Fragment } from 'react';
 import marked from 'marked';
 
+import { createArticle } from '../actions/articleActions';
+
 class ArticleForm extends Component {
   state = {
     disabledSave: false,
-    body: localStorage.getItem('body'),
+    body: '',
     title: '',
+    author: '',
     activeNavItem: 'Edit',
-  }
-
-  componentWillUnmount() {
-    localStorage.setItem('body', this.state.body);
   }
 
   handleChange = (e) => {
     const { name, value } = e.currentTarget;
 
     this.setState({ [name]: value });
+  }
+
+  handleSubmit = () => {
+    const payload = {
+      body: this.state.body,
+      title: this.state.title,
+      author: this.state.author,
+    };
+
+    createArticle(payload)
+      .then(console.log);
   }
 
   render() {
@@ -46,6 +56,9 @@ class ArticleForm extends Component {
           <div className="form-group alt__font">
             <textarea className="form-control" value={this.state.body} rows="10" name="body" placeholder="Content" onChange={this.handleChange}></textarea>
           </div>
+          <div className="form-group alt__font">
+            <input className="form-control" value={this.state.author} name="author" onChange={this.handleChange} placeholder="Author" />
+          </div>
         </Fragment>
       );
     };
@@ -55,8 +68,7 @@ class ArticleForm extends Component {
         <div className="about">
           <div className="about-item">
             <div className="about-item__header">{this.state.title}</div>
-            <div className="about-item__content alt__font article-form__preview-body" dangerouslySetInnerHTML={{ __html: marked(this.state.body) }}>
-            </div>
+            <div className="about-item__content alt__font article-form__preview-body" dangerouslySetInnerHTML={{ __html: marked(this.state.body) }} />
           </div>
         </div>
       );

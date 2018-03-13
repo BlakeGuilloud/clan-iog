@@ -14,3 +14,11 @@ functions:
           path: postArticle
           method: post
           cors: true
+
+  getArticles:
+    handler: dist/handler.getArticles
+    events:
+      - http:
+          path: getArticles
+          method: get
+          cors: true
