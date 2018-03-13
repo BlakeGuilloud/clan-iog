@@ -1,0 +1,15 @@
+{
+  "name": "article-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint-config-blake": "^1.0.8",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "build": "babel lib --out-dir dist"
+  }
+}
