@@ -7,6 +7,8 @@ import {
 import './css/App.css';
 
 import About from './components/About';
+import Articles from './components/Articles';
+import ArticleForm from './components/ArticleForm';
 import Discord from './components/Discord';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -24,6 +26,8 @@ class App extends Component {
           <Header />
           <div className="content">
             <Route exact path="/" component={Home} />
+            <Route path="/articles" component={Articles} />
+            <Route path="/form" component={ArticleForm} />
             <Route path="/about" component={About} />
             <Route path="/discord" component={Discord} />
             <Route path="/replays" component={ReplayList} />
