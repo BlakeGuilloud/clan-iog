@@ -2,7 +2,7 @@
   "name": "clan-iog-shared",
   "version": "1.0.0",
   "description": "Shared modules between services.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Blake Guilloud <blake.guilloud@gmail.com>",
   "license": "MIT",
   "devDependencies": {
