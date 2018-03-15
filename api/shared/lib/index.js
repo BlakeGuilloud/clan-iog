@@ -1,1 +1,5 @@
-console.log('Welcome to the party.');
+import mongoose from './config/mongoose';
+
+export {
+  mongoose
+};
