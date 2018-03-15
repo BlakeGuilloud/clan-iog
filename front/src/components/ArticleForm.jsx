@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import marked from 'marked';
 
-import { createArticle } from '../actions/articleActions';
+import { createArticle, fetchCategories } from '../actions/articleActions';
 
 class ArticleForm extends Component {
   state = {
@@ -10,6 +10,12 @@ class ArticleForm extends Component {
     title: '',
     author: '',
     activeNavItem: 'Edit',
+    categories: [],
+  }
+
+  componentDidMount() {
+    fetchCategories()
+      .then(categories => this.setState({ categories }));
   }
 
   handleChange = (e) => {
@@ -56,6 +62,12 @@ class ArticleForm extends Component {
           <div className="form-group alt__font">
             <textarea className="form-control" value={this.state.body} rows="10" name="body" placeholder="Content" onChange={this.handleChange}></textarea>
           </div>
+          <select>
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
           <div className="form-group alt__font">
             <input className="form-control" value={this.state.author} name="author" onChange={this.handleChange} placeholder="Author" />
           </div>

@@ -14,10 +14,13 @@
     "deploy": "yarn build && serverless deploy"
   },
   "dependencies": {
+    "babel-loader": "^7.1.4",
     "bluebird": "^3.5.1",
     "mongoose": "^5.0.10",
     "mongoose-timestamp": "^0.6.0",
     "serverless": "^1.26.1",
-    "serverless-helpers": "^0.0.6"
+    "serverless-helpers": "^0.0.6",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
   }
 }

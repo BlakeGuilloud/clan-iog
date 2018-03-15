@@ -1,10 +1,6 @@
 'use strict';
 
-var _Article = require('../../../shared/dist/models/Article.model');
-
-var _Article2 = _interopRequireDefault(_Article);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _models = require('../../../shared/dist/models');
 
 function createArticle(_ref) {
   var title = _ref.title,
@@ -12,7 +8,7 @@ function createArticle(_ref) {
       author = _ref.author,
       category = _ref.category;
 
-  return _Article2.default.create({
+  return _models.Article.create({
     title: title,
     body: body,
     author: author,
@@ -21,10 +17,15 @@ function createArticle(_ref) {
 }
 
 function fetchArticles() {
-  return _Article2.default.find({}).populate('category');
+  return _models.Article.find({}).populate('category');
+}
+
+function fetchCategories() {
+  return _models.Category.find({});
 }
 
 module.exports = {
   createArticle: createArticle,
-  fetchArticles: fetchArticles
+  fetchArticles: fetchArticles,
+  fetchCategories: fetchCategories
 };

@@ -1,4 +1,4 @@
-import Article from '../../../shared/dist/models/Article.model';
+import { Article, Category } from '../../../shared/dist/models';
 
 function createArticle({ title, body, author, category }) {
   return Article.create({
@@ -13,7 +13,12 @@ function fetchArticles() {
   return Article.find({}).populate('category');
 }
 
+function fetchCategories() {
+  return Category.find({});
+}
+
 module.exports = {
   createArticle,
   fetchArticles,
+  fetchCategories,
 };

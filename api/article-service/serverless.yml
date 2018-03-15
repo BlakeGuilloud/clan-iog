@@ -22,3 +22,11 @@ functions:
           path: getArticles
           method: get
           cors: true
+
+  getCategories:
+    handler: dist/handler.getCategories
+    events:
+      - http:
+          path: getCategories
+          method: get
+          cors: true

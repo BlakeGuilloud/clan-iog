@@ -1,8 +1,8 @@
-import mongoose from '../../shared/dist/mongoose';
+import { mongoose } from '../../shared/dist';
 
 import { tryParse, handleSuccess, handleError } from 'serverless-helpers/responses';
 
-import { createArticle, fetchArticles } from './services/Article.service';
+import { createArticle, fetchArticles, fetchCategories } from './services/Article.service';
 
 const postArticle = (event, context, callback) => {
   mongoose.connect(process.env.MONGODB_URI);
@@ -28,7 +28,19 @@ const getArticles = (event, context, callback) => {
     });
 };
 
+const getCategories = (event, context, callback) => {
+  mongoose.connect(process.env.MONGODB_URI);
+
+  fetchCategories()
+    .then(response => callback(null, handleSuccess(response)))
+    .catch(err => callback(null, handleError(err)))
+    .finally(() => {
+      mongoose.connection.close();
+    });
+};
+
 module.exports = {
   postArticle,
   getArticles,
+  getCategories,
 };

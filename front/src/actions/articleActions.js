@@ -14,6 +14,12 @@ export function fetchArticles() {
     .catch(handleError);
 }
 
+export function fetchCategories() {
+  return axios.get(`${baseUrl}/getCategories`)
+    .then(response => response.data)
+    .catch(handleError);
+}
+
 function handleError(err) {
   console.error(err); // eslint-disable-line no-console
 }
