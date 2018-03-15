@@ -1,7 +1,7 @@
 import mongoose from './config/mongoose';
 import models from './models';
 
-export {
+module.exports = {
   mongoose,
-  models
+  models,
 };
