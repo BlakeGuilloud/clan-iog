@@ -16,6 +16,7 @@
   "dependencies": {
     "babel-loader": "^7.1.4",
     "bluebird": "^3.5.1",
+    "clan-iog-shared": "^1.0.4",
     "mongoose": "^5.0.10",
     "mongoose-timestamp": "^0.6.0",
     "serverless": "^1.26.1",

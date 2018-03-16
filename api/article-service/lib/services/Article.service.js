@@ -1,4 +1,5 @@
-import { Article, Category } from '../../../shared/dist/models';
+import { models } from 'clan-iog-shared/dist';
+const { Article, Category } = models;
 
 function createArticle({ title, body, author, category }) {
   return Article.create({

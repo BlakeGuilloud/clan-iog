@@ -28,7 +28,10 @@ class Articles extends Component {
       const { _id, name } = category;
 
       const badgeClasses = cx('badge', 'alt__font', {
-        'badge-secondary': name === 'Tech',
+        'badge-secondary': name === 'Strategy',
+        'badge-primary': name === 'Tournament',
+        'badge-success': name === 'News',
+        'badge-danger': name === 'Other',
       });
 
       return <span key={_id} className={badgeClasses}>{name}</span>;

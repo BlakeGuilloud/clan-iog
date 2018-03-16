@@ -1,6 +1,6 @@
 {
   "name": "clan-iog-shared",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shared modules between services.",
   "main": "dist/index.js",
   "author": "Blake Guilloud <blake.guilloud@gmail.com>",

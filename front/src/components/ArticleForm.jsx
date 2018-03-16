@@ -1,21 +1,39 @@
 import React, { Component, Fragment } from 'react';
-import marked from 'marked';
+import dateFns from 'date-fns';
+import cx from 'classnames';
+import Markdown from 'markdown-to-jsx';
 
 import { createArticle, fetchCategories } from '../actions/articleActions';
 
 class ArticleForm extends Component {
   state = {
     disabledSave: false,
-    body: '',
-    title: '',
+    title: 'Article Title',
     author: '',
     activeNavItem: 'Edit',
     categories: [],
+    category: '',
+    body:
+`### Write an Article using the Markdown markup language.
+
+Markdown is a **super** easy, and provides an *easy* syntax for styling text!
+
+#### Edit this Textarea using Markdown syntax to style your Article.
+
+[Click here](https://www.markdownguide.org/cheat-sheet) for a quick guide on getting started with Markdown syntax!
+
+It allows you to easily embed assets! Check out Nic Cage:
+
+![Nick Cage](http://placecage.com/400/300)
+
+#### Here is a list of things:
+- List Item 1
+- List Item 2`,
   }
 
   componentDidMount() {
     fetchCategories()
-      .then(categories => this.setState({ categories }));
+      .then(categories => this.setState({ categories, category: categories[0]._id }));
   }
 
   handleChange = (e) => {
@@ -24,11 +42,18 @@ class ArticleForm extends Component {
     this.setState({ [name]: value });
   }
 
+  handleSelect = (e) => {
+    const { value } = e.currentTarget;
+
+    this.setState({ category: value });
+  }
+
   handleSubmit = () => {
     const payload = {
       body: this.state.body,
       title: this.state.title,
       author: this.state.author,
+      category: this.state.category,
     };
 
     createArticle(payload)
@@ -59,15 +84,14 @@ class ArticleForm extends Component {
           <div className="form-group">
             <input className="form-control" value={this.state.title} name="title" onChange={this.handleChange} placeholder="Title" />
           </div>
+          <div className="form-group">
+            <select defaultValue={this.state.category} onChange={this.handleSelect}>
+              {this.state.categories.map(cat => <option key={cat._id} value={cat._id}>{cat.name}</option>)}
+            </select>
+          </div>
           <div className="form-group alt__font">
             <textarea className="form-control" value={this.state.body} rows="10" name="body" placeholder="Content" onChange={this.handleChange}></textarea>
           </div>
-          <select>
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
           <div className="form-group alt__font">
             <input className="form-control" value={this.state.author} name="author" onChange={this.handleChange} placeholder="Author" />
           </div>
@@ -75,12 +99,34 @@ class ArticleForm extends Component {
       );
     };
 
+    const renderCategoryBadge = (category) => {
+      if (!category) return null;
+
+      const { _id, name } = category;
+
+      const badgeClasses = cx('badge', 'alt__font', {
+        'badge-secondary': name === 'Strategy',
+        'badge-primary': name === 'Tournament',
+        'badge-success': name === 'News',
+        'badge-danger': name === 'Other',
+      });
+
+      return <span key={_id} className={badgeClasses}>{name}</span>;
+    };
+
     const renderPreview = () => {
       return (
         <div className="about">
           <div className="about-item">
             <div className="about-item__header">{this.state.title}</div>
-            <div className="about-item__content alt__font article-form__preview-body" dangerouslySetInnerHTML={{ __html: marked(this.state.body) }} />
+            <div className="alt__font">
+              <Markdown options={{ forceBlock: true }}>
+                {this.state.body}
+              </Markdown>
+            </div>
+            <div className="alt__font">{dateFns.format(new Date(), 'MM/DD/YYYY')}</div>
+            <div className="alt__font">{this.state.author}</div>
+            {renderCategoryBadge(this.state.categories.find(c => c._id === this.state.category))}
           </div>
         </div>
       );

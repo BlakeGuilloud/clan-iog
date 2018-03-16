@@ -1,4 +1,4 @@
-import { mongoose } from '../../shared/dist';
+import { mongoose } from 'clan-iog-shared';
 
 import { tryParse, handleSuccess, handleError } from 'serverless-helpers/responses';
 

@@ -1,6 +1,10 @@
 'use strict';
 
-var _models = require('../../../shared/dist/models');
+var _dist = require('clan-iog-shared/dist');
+
+var Article = _dist.models.Article,
+    Category = _dist.models.Category;
+
 
 function createArticle(_ref) {
   var title = _ref.title,
@@ -8,7 +12,7 @@ function createArticle(_ref) {
       author = _ref.author,
       category = _ref.category;
 
-  return _models.Article.create({
+  return Article.create({
     title: title,
     body: body,
     author: author,
@@ -17,11 +21,11 @@ function createArticle(_ref) {
 }
 
 function fetchArticles() {
-  return _models.Article.find({}).populate('category');
+  return Article.find({}).populate('category');
 }
 
 function fetchCategories() {
-  return _models.Category.find({});
+  return Category.find({});
 }
 
 module.exports = {
