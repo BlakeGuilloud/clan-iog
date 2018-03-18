@@ -1,0 +1,33 @@
+{
+  "name": "clan-iog-shared",
+  "version": "1.0.4",
+  "description": "Shared modules between services.",
+  "main": "dist/index.js",
+  "author": "Blake Guilloud <blake.guilloud@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint-config-blake": "^1.0.8",
+    "jest": "^21.2.1",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "build": "babel lib --out-dir dist",
+    "clean": "rimraf dist",
+    "fix": "eslint ./lib ./test --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint ./lib ./test",
+    "prepublish": "yarn clean && yarn build"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "mongoose": "^5.0.10",
+    "mongoose-timestamp": "^0.6.0"
+  }
+}

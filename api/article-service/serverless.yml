@@ -1,0 +1,32 @@
+service: iog-article-service
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    MONGODB_URI: ${file(./config.json):MONGODB_URI}
+
+functions:
+  postArticle:
+    handler: dist/handler.postArticle
+    events:
+      - http:
+          path: postArticle
+          method: post
+          cors: true
+
+  getArticles:
+    handler: dist/handler.getArticles
+    events:
+      - http:
+          path: getArticles
+          method: get
+          cors: true
+
+  getCategories:
+    handler: dist/handler.getCategories
+    events:
+      - http:
+          path: getCategories
+          method: get
+          cors: true

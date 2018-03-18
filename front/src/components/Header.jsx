@@ -14,55 +14,52 @@ class Header extends Component {
   }
 
   render() {
+    const pathIncludes = name =>
+      window.location.pathname.includes(name);
+
     const navItems = [
       {
         image: '/images/icons/replays.png',
         route: '/replays',
         title: 'Replays',
-        active: window.location.pathname.includes('replays') || window.location.pathname.includes('upload'),
+        active: pathIncludes('replays') || pathIncludes('upload'),
+      },
+      {
+        image: '/images/icons/youtube.jpg',
+        route: '/articles',
+        title: 'Articles',
+        active: pathIncludes('articles'),
       },
       {
         image: '/images/icons/shaman.jpg',
         route: '/tournaments',
         title: 'Tournaments',
-        active: window.location.pathname.includes('tournaments'),
+        active: pathIncludes('tournaments'),
       },
       {
         image: '/images/icons/about.png',
         route: '/about',
         title: 'About',
-        active: window.location.pathname.includes('about'),
+        active: pathIncludes('about'),
       },
       {
         image: '/images/icons/tech.png',
         route: '/tech',
         title: 'Tech',
-        active: window.location.pathname.includes('tech'),
+        active: pathIncludes('tech'),
       },
       {
         image: '/images/icons/discord.jpg',
         route: '/discord',
         title: 'Discord',
-        active: window.location.pathname.includes('discord'),
+        active: pathIncludes('discord'),
       },
       {
         image: '/images/icons/youtube.jpg',
         route: '/youtube',
         title: 'Youtube',
-        active: window.location.pathname.includes('youtube'),
+        active: pathIncludes('youtube'),
       },
-      // {
-      //   image: '/images/icons/shaman.jpg',
-      //   route: '/shaman',
-      //   title: 'Shaman',
-      //   active: window.location.pathname.includes('shaman'),
-      // },
-      // {
-      //   image: '/images/icons/discord.jpg',
-      //   route: '/media',
-      //   title: 'Media',
-      //   active: window.location.pathname.includes('media'),
-      // },
     ];
 
     return (

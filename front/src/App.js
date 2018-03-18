@@ -7,14 +7,12 @@ import {
 import './css/App.css';
 
 import About from './components/About';
-// import AutoReload from './components/AutoReload';
-import Contact from './components/Contact';
+import Articles from './components/Articles';
+import ArticleForm from './components/ArticleForm';
 import Discord from './components/Discord';
 import Header from './components/Header';
 import Home from './components/Home';
-import Media from './components/Media';
 import ReplayList from './components/ReplayList';
-import Shaman from './components/Shaman';
 import Tech from './components/Tech';
 import Tournament from './components/Tournament';
 import UploadReplayForm from './components/UploadReplayForm';
@@ -26,15 +24,13 @@ class App extends Component {
       <Router>
         <div className="app">
           <Header />
-          {/* <AutoReload /> */}
           <div className="content">
             <Route exact path="/" component={Home} />
+            <Route path="/articles" component={Articles} />
+            <Route path="/form" component={ArticleForm} />
             <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
             <Route path="/discord" component={Discord} />
-            <Route path="/media" component={Media} />
             <Route path="/replays" component={ReplayList} />
-            <Route path="/shaman" component={Shaman} />
             <Route path="/tech" component={Tech} />
             <Route path="/tournaments" component={Tournament} />
             <Route path="/upload" component={UploadReplayForm} />

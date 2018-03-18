@@ -58,7 +58,7 @@ class Replay extends Component {
             Show Winner
           </div>
           <div>
-            {this.state.showWinner && `Winner: ${winningTeam.join(', ')}`}
+            {this.state.showWinner && `Winner: ${winningTeam.length ? winningTeam.join(', ') : 'Unknown'}`}
           </div>
         </div>
         <div className="replay__item-details">
@@ -106,7 +106,6 @@ class ReplayList extends Component {
 
      Actions.fetchReplays({ page })
        .then((response) => {
-         console.log(response);
          this.setState({
            replayIds: this.state.replayIds.concat(response.result),
            replays: { ...this.state.replays, ...response.entities.replays },

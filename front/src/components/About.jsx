@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 
 const shaman = [
   {
-    name: 'DBOL',
-    race: 'Random',
-    joinDate: '08/22/2016',
+    name: 'quick',
+    race: 'Orc',
+    joinDate: '03/27/2016',
   },
   {
-    name: 'Ragnarok',
-    race: 'Random',
-    joinDate: '09/06/2016',
+    name: 'shingle',
+    race: 'Human',
+    joinDate: '02/20/2018',
   },
   {
     name: 'Sly_One',
@@ -19,12 +19,12 @@ const shaman = [
   {
     name: 'FatRedBelly',
     race: 'Human',
-    joinDate: '10/27/2017',
+    joinDate: '1/21/2017',
   },
   {
-    name: 'BLinK',
-    race: 'Night Elf',
-    joinDate: '1/02/2018',
+    name: 'RenditionRG_FF',
+    race: 'Undead',
+    joinDate: '02/10/2018',
   },
 ];
 

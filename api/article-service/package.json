@@ -1,0 +1,27 @@
+{
+  "name": "article-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint-config-blake": "^1.0.8",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "build": "babel lib --out-dir dist",
+    "deploy": "yarn build && serverless deploy"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "bluebird": "^3.5.1",
+    "clan-iog-shared": "^1.0.4",
+    "mongoose": "^5.0.10",
+    "mongoose-timestamp": "^0.6.0",
+    "serverless": "^1.26.1",
+    "serverless-helpers": "^0.0.6",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
+  }
+}

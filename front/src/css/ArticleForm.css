@@ -1,0 +1,20 @@
+.article-form {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.article-form > .nav {
+  margin-top: 20px;
+}
+
+.article-form > .about {
+  max-width: 100%;
+  width: 100%;
+  margin-top: 40px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.article-form__preview-body > * {
+  width: 100%;
+}
