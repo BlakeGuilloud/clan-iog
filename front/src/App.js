@@ -26,8 +26,8 @@ class App extends Component {
           <Header />
           <div className="content">
             <Route exact path="/" component={Home} />
-            <Route path="/articles" component={Articles} />
-            <Route path="/form" component={ArticleForm} />
+            <Route path="/news" component={Articles} />
+            <Route path="/createArticle" component={ArticleForm} />
             <Route path="/about" component={About} />
             <Route path="/discord" component={Discord} />
             <Route path="/replays" component={ReplayList} />

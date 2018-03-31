@@ -5,16 +5,7 @@ import Markdown from 'markdown-to-jsx';
 
 import { createArticle, fetchCategories } from '../actions/articleActions';
 
-class ArticleForm extends Component {
-  state = {
-    disabledSave: false,
-    title: 'Article Title',
-    author: '',
-    activeNavItem: 'Edit',
-    categories: [],
-    category: '',
-    body:
-`### Write an Article using the Markdown markup language.
+const markdownBody = `### Write an Article using the Markdown markup language.
 
 Markdown is a **super** easy, and provides an *easy* syntax for styling text!
 
@@ -22,18 +13,43 @@ Markdown is a **super** easy, and provides an *easy* syntax for styling text!
 
 [Click here](https://www.markdownguide.org/cheat-sheet) for a quick guide on getting started with Markdown syntax!
 
-It allows you to easily embed assets! Check out Nic Cage:
+It allows you to easily embed assets! Check out an image:
 
-![Nick Cage](http://placecage.com/400/300)
+![Nick Cage](http://lorempixel.com/400/200/)
 
 #### Here is a list of things:
 - List Item 1
-- List Item 2`,
+- List Item 2
+
+<h3>You can also embed plain old HTML:</h3>
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+`;
+
+class ArticleForm extends Component {
+  state = {
+    disabledSave: false,
+    title: '',
+    author: '',
+    activeNavItem: 'Edit',
+    categories: [],
+    category: '',
+    error: '',
+    success: false,
+    body: localStorage.getItem('body') || markdownBody,
   }
 
   componentDidMount() {
     fetchCategories()
       .then(categories => this.setState({ categories, category: categories[0]._id }));
+  }
+
+  componentWillUnmount() {
+    if (this.state.success) {
+      localStorage.removeItem('body');
+    } else {
+      localStorage.setItem('body', this.state.body);
+    }
   }
 
   handleChange = (e) => {
@@ -48,6 +64,28 @@ It allows you to easily embed assets! Check out Nic Cage:
     this.setState({ category: value });
   }
 
+  validate = ({ body, title, author, category }) => {
+    if (!body || !title || !author || !category) {
+      this.setState({
+        error: 'Invalid Article- please be sure to fill out all fields',
+      });
+
+      return false;
+    }
+
+    this.setState({ error: '' });
+
+    return true;
+  }
+
+  resetBody = () => {
+    localStorage.removeItem('body');
+
+    this.setState({
+      body: markdownBody,
+    });
+  }
+
   handleSubmit = () => {
     const payload = {
       body: this.state.body,
@@ -56,8 +94,19 @@ It allows you to easily embed assets! Check out Nic Cage:
       category: this.state.category,
     };
 
+    if (!this.validate(payload)) {
+      return false;
+    }
+
     createArticle(payload)
-      .then(console.log);
+      .then(() => {
+        this.setState({
+          success: true,
+        });
+      })
+      .then(() => {
+        this.props.history.push('/news');
+      });
   }
 
   render() {
@@ -89,8 +138,11 @@ It allows you to easily embed assets! Check out Nic Cage:
               {this.state.categories.map(cat => <option key={cat._id} value={cat._id}>{cat.name}</option>)}
             </select>
           </div>
+          <div className="form-group">
+            <button className="btn btn-danger" onClick={this.resetBody} type="submit">Reset Content</button>
+          </div>
           <div className="form-group alt__font">
-            <textarea className="form-control" value={this.state.body} rows="10" name="body" placeholder="Content" onChange={this.handleChange}></textarea>
+            <textarea className="form-control" value={this.state.body} rows="30" name="body" placeholder="Content" onChange={this.handleChange}></textarea>
           </div>
           <div className="form-group alt__font">
             <input className="form-control" value={this.state.author} name="author" onChange={this.handleChange} placeholder="Author" />
@@ -134,13 +186,21 @@ It allows you to easily embed assets! Check out Nic Cage:
 
     return (
       <div className="article-form">
+        <br />
+        <div className="text-center">
+          All Articles will be reviewed before being published.
+        </div>
         <ul className="nav nav-tabs">
           {navItems.map(renderNavItems)}
         </ul>
         {
           this.state.activeNavItem === 'Edit' ? renderEditForm() : renderPreview()
         }
-
+        {this.state.error &&
+          <div className="alert alert-danger" role="alert">
+            {this.state.error}
+          </div>
+        }
         <div className="form-group">
           <button className="btn btn-dark" disabled={this.state.disableSave} onClick={this.handleSubmit} type="submit">Submit Article</button>
         </div>
