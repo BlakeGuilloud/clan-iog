@@ -26,16 +26,16 @@ class Header extends Component {
       },
       {
         image: '/images/icons/youtube.jpg',
-        route: '/articles',
-        title: 'Articles',
-        active: pathIncludes('articles'),
+        route: '/news',
+        title: 'News',
+        active: pathIncludes('news'),
       },
-      {
-        image: '/images/icons/shaman.jpg',
-        route: '/tournaments',
-        title: 'Tournaments',
-        active: pathIncludes('tournaments'),
-      },
+      // {
+      //   image: '/images/icons/shaman.jpg',
+      //   route: '/tournaments',
+      //   title: 'Tournaments',
+      //   active: pathIncludes('tournaments'),
+      // },
       {
         image: '/images/icons/about.png',
         route: '/about',

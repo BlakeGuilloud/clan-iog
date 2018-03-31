@@ -71,6 +71,7 @@
 
 .player__name {
   margin-left: 10px;
+  color: inherit;
 }
 
 .apm {

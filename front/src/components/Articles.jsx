@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import marked from 'marked';
 import dateFns from 'date-fns';
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 
 import { fetchArticles } from '../actions/articleActions';
 
@@ -57,6 +58,9 @@ class Articles extends Component {
 
     return (
       <Fragment>
+        <div className="upload__button">
+          <Link className="u-m-0-a btn btn-outline-dark" to="/createArticle">Write Article</Link>
+        </div>
         {this.state.articles.filter(item => item.approved).map(renderArticle)}
       </Fragment>
     );
