@@ -11,7 +11,7 @@ function createArticle({ title, body, author, category }) {
 }
 
 function fetchArticles() {
-  return Article.find({}).populate('category');
+  return Article.find({}).populate('category').sort({ 'createdAt': -1 });
 }
 
 function fetchCategories() {
